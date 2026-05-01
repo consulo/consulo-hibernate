@@ -15,7 +15,7 @@
  */
 package com.intellij.javaee.dataSource;
 
-import com.intellij.openapi.project.Project;
+import consulo.project.Project;
 
 /**
  * author: lesya

@@ -7,22 +7,22 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import com.intellij.lang.Language;
-import com.intellij.lang.LanguageUtil;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.openapi.fileTypes.FileTypeManager;
-import com.intellij.openapi.fileTypes.LanguageFileType;
-import com.intellij.openapi.fileTypes.PlainTextLanguage;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.util.Condition;
-import com.intellij.openapi.util.text.StringUtil;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+import consulo.language.Language;
+import consulo.language.util.LanguageUtil;
+import consulo.virtualFileSystem.fileType.FileType;
+import consulo.language.file.FileTypeManager;
+import consulo.language.file.LanguageFileType;
+import consulo.language.plain.PlainTextLanguage;
+import consulo.project.Project;
+import consulo.util.lang.Comparing;
+import consulo.util.lang.function.Condition;
+import consulo.util.lang.StringUtil;
 import com.intellij.persistence.database.psi.DbDataSourceElement;
 import com.intellij.persistence.database.psi.DbElement;
 import com.intellij.persistence.database.psi.DbPsiFacade;
-import com.intellij.util.containers.ContainerUtil;
+import consulo.util.collection.ContainerUtil;
 
 /**
  * @author Gregory.Shrago

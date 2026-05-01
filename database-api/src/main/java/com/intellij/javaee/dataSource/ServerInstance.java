@@ -15,7 +15,7 @@
  */
 package com.intellij.javaee.dataSource;
 
-import com.intellij.execution.process.ProcessHandler;
+import consulo.process.ProcessHandler;
 
 public interface ServerInstance {
 

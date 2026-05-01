@@ -4,16 +4,16 @@
  */
 package com.intellij.hibernate.highlighting;
 
-import com.intellij.codeInsight.lookup.Lookup;
+import consulo.language.editor.completion.lookup.Lookup;
 import com.intellij.testFramework.fixtures.JavaCodeInsightFixtureTestCase;
 import com.intellij.xml.util.CheckXmlFileWithXercesValidatorInspection;
-import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.vfs.VfsUtil;
+import consulo.application.ApplicationManager;
+import consulo.virtualFileSystem.util.VfsUtil;
 import com.intellij.hibernate.facet.HibernateFacetType;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.hibernate.model.HibernateDescriptorsConstants;
 import com.intellij.hibernate.HibernateInspectionToolProvider;
-import com.intellij.facet.FacetManager;
+import consulo.module.extension.ModuleExtensionHelper;
 import com.intellij.jpa.JpaInspectionToolProvider;
 
 import java.io.IOException;
@@ -78,7 +78,8 @@ public class HibernateHighlightingUserFriendlyTest extends JavaCodeInsightFixtur
     ApplicationManager.getApplication().runWriteAction(new Runnable() {
       public void run() {
         HibernateFacetType type = HibernateFacetType.INSTANCE;
-        HibernateFacet myFacet = FacetManager.getInstance(myModule).addFacet(type, type.getPresentableName(), null);
+        // TODO: FacetManager.addFacet() removed; using HibernateFacetType.createFacet() instead
+        HibernateFacet myFacet = type.createFacet(myModule, type.getDefaultFacetName(), type.createDefaultConfiguration());
         myFacet.getConfiguration().getDescriptorsConfiguration().addConfigFile(HibernateDescriptorsConstants.HIBERNATE_CONFIGURATION_META_DATA,
                                                                            VfsUtil.pathToUrl(myFixture.getTempDirPath() + "/hibernate.cfg.xml"));
       }

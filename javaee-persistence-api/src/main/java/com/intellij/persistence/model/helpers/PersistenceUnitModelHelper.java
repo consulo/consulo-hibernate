@@ -19,15 +19,15 @@ package com.intellij.persistence.model.helpers;
 import java.util.List;
 import java.util.Properties;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import com.intellij.persistence.model.PersistenceListener;
 import com.intellij.persistence.model.PersistenceMappings;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiJavaPackage;
-import com.intellij.util.xml.GenericValue;
+import com.intellij.java.language.psi.PsiClass;
+import consulo.language.psi.PsiFile;
+import com.intellij.java.language.psi.PsiJavaPackage;
+import consulo.xml.dom.GenericValue;
 
 /**
  * @author Gregory.Shrago

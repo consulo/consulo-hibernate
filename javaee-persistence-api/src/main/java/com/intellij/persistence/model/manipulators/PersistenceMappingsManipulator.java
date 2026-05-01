@@ -17,8 +17,8 @@
 package com.intellij.persistence.model.manipulators;
 
 import com.intellij.persistence.model.*;
-import com.intellij.psi.PsiDirectory;
-import com.intellij.util.IncorrectOperationException;
+import consulo.language.psi.PsiDirectory;
+import consulo.language.util.IncorrectOperationException;
 
 /**
  * @author Gregory.Shrago

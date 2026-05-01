@@ -16,13 +16,13 @@
 
 package com.intellij.persistence.model;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 import com.intellij.jam.model.common.CommonModelElement;
 import com.intellij.persistence.model.helpers.PersistentAttributeModelHelper;
-import com.intellij.psi.PsiMember;
-import com.intellij.psi.PsiType;
-import com.intellij.util.xml.GenericValue;
+import com.intellij.java.language.psi.PsiMember;
+import com.intellij.java.language.psi.PsiType;
+import consulo.xml.dom.GenericValue;
 
 /**
  * @author Gregory.Shrago

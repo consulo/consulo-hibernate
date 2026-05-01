@@ -16,7 +16,7 @@
 
 package com.intellij.persistence.database;
 
-import com.intellij.psi.PsiElement;
+import consulo.language.psi.PsiElement;
 
 /**
  * @author Gregory.Shrago

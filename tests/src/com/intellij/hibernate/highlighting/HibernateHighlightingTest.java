@@ -4,7 +4,7 @@
  */
 package com.intellij.hibernate.highlighting;
 
-import com.intellij.facet.FacetManager;
+import consulo.module.extension.ModuleExtensionHelper;
 import com.intellij.hibernate.HibernateInspectionToolProvider;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.hibernate.facet.HibernateFacetType;
@@ -12,10 +12,10 @@ import com.intellij.hibernate.model.HibernateDescriptorsConstants;
 import com.intellij.j2ee.J2EETestCase;
 import com.intellij.javaee.dataSource.DataSource;
 import com.intellij.jpa.JpaInspectionToolProvider;
-import com.intellij.openapi.application.PathManager;
-import com.intellij.openapi.application.Result;
-import com.intellij.openapi.command.WriteCommandAction;
-import com.intellij.openapi.vfs.VirtualFile;
+import consulo.application.PathManager;
+import consulo.application.Result;
+import consulo.language.editor.WriteCommandAction;
+import consulo.virtualFileSystem.VirtualFile;
 import com.intellij.persistence.roles.PersistenceRoleHolder;
 import com.intellij.testFramework.PsiTestUtil;
 import com.intellij.testFramework.builders.JavaModuleFixtureBuilder;
@@ -63,7 +63,8 @@ public class HibernateHighlightingTest extends JavaCodeInsightFixtureTestCase {
     return new WriteCommandAction<HibernateFacet>(getProject()) {
       protected void run(final Result<HibernateFacet> result) throws Throwable {
         HibernateFacetType type = HibernateFacetType.INSTANCE;
-        final HibernateFacet facet = FacetManager.getInstance(myModule).addFacet(type, type.getPresentableName(), null);
+        // TODO: FacetManager.addFacet() removed; using HibernateFacetType.createFacet() instead
+        final HibernateFacet facet = type.createFacet(myModule, type.getDefaultFacetName(), type.createDefaultConfiguration());
         facet.getConfiguration().getDescriptorsConfiguration().addConfigFile(HibernateDescriptorsConstants.HIBERNATE_CONFIGURATION_META_DATA, cfgXml.getUrl());
 
         result.setResult(facet);

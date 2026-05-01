@@ -16,7 +16,7 @@
 
 package com.intellij.hibernate.console;
 
-import com.intellij.openapi.util.text.StringUtil;
+import consulo.util.lang.StringUtil;
 import com.intellij.persistence.database.console.ConsoleBase;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
@@ -29,7 +29,7 @@ import org.hibernate.type.AbstractComponentType;
 import org.hibernate.type.StringType;
 import org.hibernate.type.Type;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.Nullable;
+import jakarta.annotation.Nullable;
 
 import java.io.File;
 import java.util.Collections;

@@ -19,7 +19,7 @@ package com.intellij.persistence.model.manipulators;
 import com.intellij.persistence.model.PersistenceMappings;
 import com.intellij.persistence.model.PersistencePackage;
 import com.intellij.persistence.database.DatabaseConnectionInfo;
-import com.intellij.psi.PsiClass;
+import com.intellij.java.language.psi.PsiClass;
 
 /**
  * @author Gregory.Shrago

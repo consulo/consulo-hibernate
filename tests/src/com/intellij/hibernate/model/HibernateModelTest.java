@@ -4,7 +4,7 @@
  */
 package com.intellij.hibernate.model;
 
-import com.intellij.facet.FacetManager;
+import consulo.module.extension.ModuleExtensionHelper;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.hibernate.facet.HibernateFacetType;
 import com.intellij.hibernate.model.enums.HibernateAttributeType;
@@ -16,13 +16,13 @@ import com.intellij.j2ee.J2EETestCase;
 import com.intellij.javaee.model.common.persistence.mapping.AttributeType;
 import com.intellij.jpa.actions.NewGroupPersistence;
 import com.intellij.jpa.model.manipulators.ObjectManipulatorBase;
-import com.intellij.openapi.actionSystem.DataContext;
-import com.intellij.openapi.application.PathManager;
-import com.intellij.openapi.application.Result;
-import com.intellij.openapi.command.WriteCommandAction;
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.util.Pair;
-import com.intellij.openapi.vfs.VirtualFile;
+import consulo.dataContext.DataContext;
+import consulo.application.PathManager;
+import consulo.application.Result;
+import consulo.language.editor.WriteCommandAction;
+import consulo.module.Module;
+import consulo.util.lang.Pair;
+import consulo.virtualFileSystem.VirtualFile;
 import com.intellij.persistence.PersistenceDataKeys;
 import com.intellij.persistence.PersistenceHelper;
 import com.intellij.persistence.facet.PersistenceFacetBase;
@@ -35,18 +35,18 @@ import com.intellij.persistence.roles.PersistenceClassRole;
 import com.intellij.persistence.roles.PersistenceRoleHolder;
 import com.intellij.persistence.util.JavaContainerType;
 import com.intellij.persistence.util.PersistenceCommonUtil;
-import com.intellij.psi.*;
-import com.intellij.psi.impl.source.PsiClassReferenceType;
-import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.psi.xml.XmlFile;
+import com.intellij.java.language.psi.*;
+import com.intellij.java.language.impl.psi.impl.source.PsiClassReferenceType;
+import consulo.language.psi.scope.GlobalSearchScope;
+import consulo.xml.language.psi.XmlFile;
 import com.intellij.testFramework.PsiTestUtil;
 import com.intellij.testFramework.builders.JavaModuleFixtureBuilder;
 import com.intellij.testFramework.fixtures.JavaCodeInsightFixtureTestCase;
-import com.intellij.util.Function;
-import com.intellij.util.IncorrectOperationException;
-import com.intellij.util.xml.*;
+import java.util.function.Function;
+import consulo.language.util.IncorrectOperationException;
+import consulo.xml.dom.*;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
+import jakarta.annotation.Nonnull;
 
 import java.util.Collection;
 
@@ -217,18 +217,18 @@ public class HibernateModelTest extends JavaCodeInsightFixtureTestCase {
     for (final PersistenceAction action : manipulator.getCreateActions()) {
       idx[0] ++;
       final UserResponse attributeUserResponse = new UserResponse() {
-        public String getPersistenceUnitName(@NotNull final PersistenceFacetBase<?, ? extends PersistencePackage> facet) {
+        public String getPersistenceUnitName(@Nonnull final PersistenceFacetBase<?, ? extends PersistencePackage> facet) {
           return null;
         }
 
-        @NotNull
-        public VirtualFile[] getPersistenceMappingFiles(@NotNull final PersistenceFacetBase<?, ?> facet,
+        @Nonnull
+        public VirtualFile[] getPersistenceMappingFiles(@Nonnull final PersistenceFacetBase<?, ?> facet,
                                                         final String templateName,
                                                         final Class<? extends PersistenceMappings> mappingsClass) {
           return VirtualFile.EMPTY_ARRAY;
         }
 
-        public Pair<PsiDirectory, String> getClassName(@NotNull final Module module, final String title, final String helpID) {
+        public Pair<PsiDirectory, String> getClassName(@Nonnull final Module module, final String title, final String helpID) {
           return null;
         }
 
@@ -262,7 +262,8 @@ public class HibernateModelTest extends JavaCodeInsightFixtureTestCase {
     return new WriteCommandAction<HibernateFacet>(getProject()) {
       protected void run(final Result<HibernateFacet> result) throws Throwable {
         HibernateFacetType type = HibernateFacetType.INSTANCE;
-        final HibernateFacet facet = FacetManager.getInstance(myModule).addFacet(type, type.getPresentableName(), null);
+        // TODO: FacetManager.addFacet() removed; using HibernateFacetType.createFacet() instead
+        final HibernateFacet facet = type.createFacet(myModule, type.getDefaultFacetName(), type.createDefaultConfiguration());
         facet.getConfiguration().getDescriptorsConfiguration().addConfigFile(HibernateDescriptorsConstants.HIBERNATE_CONFIGURATION_META_DATA, file.getVirtualFile().getUrl());
 
         result.setResult(facet);

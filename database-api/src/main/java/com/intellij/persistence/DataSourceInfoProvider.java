@@ -16,23 +16,25 @@
 
 package com.intellij.persistence;
 
-import com.intellij.openapi.extensions.ExtensionPointName;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Pair;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.psi.PsiElement;
+import consulo.annotation.component.ComponentScope;
+import consulo.annotation.component.ExtensionAPI;
+import consulo.component.extension.ExtensionPointName;
+import consulo.language.psi.PsiElement;
+import consulo.project.Project;
+import consulo.util.lang.Pair;
+import consulo.util.lang.StringUtil;
+import jakarta.annotation.Nullable;
 import org.jetbrains.annotations.NonNls;
 
 import java.util.Collection;
 import java.util.Collections;
 
-import javax.annotation.Nullable;
-
 /**
  * @author Gregory.Shrago
  */
+@ExtensionAPI(ComponentScope.PROJECT)
 public abstract class DataSourceInfoProvider {
-  public static ExtensionPointName<DataSourceInfoProvider> EP_NAME = ExtensionPointName.create("com.intellij.persistence.database.dataSourceInfoProvider");
+  public static ExtensionPointName<DataSourceInfoProvider> EP_NAME = ExtensionPointName.create(DataSourceInfoProvider.class);
 
   public abstract Collection<Pair<PsiElement,DataSourceInfo>> getDataSources(final Project project);
 

@@ -1,9 +1,9 @@
 package com.intellij.javaee.model.role;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
-import com.intellij.openapi.util.Key;
-import com.intellij.openapi.util.UserDataHolder;
+import consulo.util.dataholder.Key;
+import consulo.util.dataholder.UserDataHolder;
 import com.intellij.persistence.roles.PersistenceClassRole;
 
 /**

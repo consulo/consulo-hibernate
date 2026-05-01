@@ -15,16 +15,16 @@
  */
 package com.intellij.javaee.dataSource;
 
-import com.intellij.openapi.util.*;
-import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.xmlb.XmlSerializer;
-import com.intellij.util.xmlb.annotations.Transient;
 import com.intellij.persistence.database.DatabaseColumnInfo;
+import consulo.util.collection.ContainerUtil;
+import consulo.util.lang.function.Condition;
+import consulo.util.xml.serializer.XmlSerializer;
+import consulo.util.xml.serializer.annotation.Transient;
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
 
-import java.util.List;
 import java.sql.Types;
+import java.util.List;
 
 public class DatabaseTableFieldData implements DatabaseColumnInfo {
   private DatabaseTableData myTable;

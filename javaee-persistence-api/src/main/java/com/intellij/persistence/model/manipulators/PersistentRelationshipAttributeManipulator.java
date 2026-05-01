@@ -19,7 +19,7 @@ package com.intellij.persistence.model.manipulators;
 import com.intellij.persistence.model.PersistentRelationshipAttribute;
 import com.intellij.persistence.database.DatabaseTableInfo;
 import com.intellij.persistence.database.DatabaseColumnInfo;
-import com.intellij.util.IncorrectOperationException;
+import consulo.language.util.IncorrectOperationException;
 
 import java.util.Map;
 

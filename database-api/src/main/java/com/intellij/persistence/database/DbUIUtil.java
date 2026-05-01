@@ -1,18 +1,15 @@
 package com.intellij.persistence.database;
 
+import com.intellij.persistence.database.psi.DbDataSourceElement;
+import consulo.ui.ex.SimpleTextAttributes;
+import consulo.ui.ex.awt.ColoredListCellRenderer;
+import consulo.util.collection.ArrayUtil;
+import consulo.util.lang.Comparing;
+import consulo.util.lang.StringUtil;
+
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.Comparator;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JList;
-
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.persistence.database.psi.DbDataSourceElement;
-import com.intellij.ui.ColoredListCellRenderer;
-import com.intellij.ui.SimpleTextAttributes;
-import com.intellij.util.ArrayUtil;
 
 /**
  * @author Gregory.Shrago

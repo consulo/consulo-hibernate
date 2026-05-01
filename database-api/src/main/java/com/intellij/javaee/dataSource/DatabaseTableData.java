@@ -15,19 +15,19 @@
  */
 package com.intellij.javaee.dataSource;
 
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.util.Condition;
+import consulo.util.lang.Comparing;
+import consulo.util.lang.function.Condition;
 import com.intellij.persistence.database.DatabaseColumnInfo;
 import com.intellij.persistence.database.DatabaseReferenceConstraintInfo;
 import com.intellij.persistence.database.DatabaseTableLongInfo;
 import com.intellij.persistence.database.TableType;
-import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.xmlb.XmlSerializer;
-import com.intellij.util.xmlb.annotations.Transient;
+import consulo.util.collection.ContainerUtil;
+import consulo.util.xml.serializer.XmlSerializer;
+import consulo.util.xml.serializer.annotation.Transient;
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -38,6 +38,7 @@ import java.util.List;
 
 public class DatabaseTableData implements DatabaseTableLongInfo {
 
+    
   @NonNls public static final String TYPE_TABLE = "TABLE";
   @NonNls public static final String TYPE_VIEW = "VIEW";
   @NonNls public static final String TYPE_SEQUENCE = "SEQUENCE";

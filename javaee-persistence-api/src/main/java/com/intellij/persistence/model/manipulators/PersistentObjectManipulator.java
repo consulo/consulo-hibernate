@@ -20,12 +20,12 @@ import com.intellij.persistence.database.DatabaseTableInfo;
 import com.intellij.persistence.database.DatabaseColumnInfo;
 import com.intellij.persistence.model.*;
 import com.intellij.persistence.util.JavaContainerType;
-import com.intellij.psi.PsiAnnotation;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiMember;
-import com.intellij.psi.PsiType;
-import com.intellij.psi.util.PropertyMemberType;
-import com.intellij.util.IncorrectOperationException;
+import com.intellij.java.language.psi.PsiAnnotation;
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.java.language.psi.PsiMember;
+import com.intellij.java.language.psi.PsiType;
+import com.intellij.java.language.psi.util.PropertyMemberType;
+import consulo.language.util.IncorrectOperationException;
 
 import java.util.Collection;
 

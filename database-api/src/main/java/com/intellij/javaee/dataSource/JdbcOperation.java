@@ -16,9 +16,9 @@
 
 package com.intellij.javaee.dataSource;
 
-import com.intellij.openapi.progress.ProgressIndicator;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import consulo.application.progress.ProgressIndicator;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import java.sql.Connection;
 

@@ -19,9 +19,9 @@ package com.intellij.persistence.model;
 import com.intellij.jam.model.common.CommonModelElement;
 import com.intellij.javaee.model.common.TakeFromXml;
 import com.intellij.persistence.model.helpers.PersistentObjectModelHelper;
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.util.xml.PrimaryKey;
+import com.intellij.java.language.psi.PsiClass;
+import consulo.xml.dom.GenericValue;
+import consulo.xml.dom.PrimaryKey;
 
 /**
  * @author Gregory.Shrago

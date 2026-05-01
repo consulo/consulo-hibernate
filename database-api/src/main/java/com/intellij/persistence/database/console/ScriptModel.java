@@ -1,8 +1,8 @@
 package com.intellij.persistence.database.console;
 
-import com.intellij.openapi.util.TextRange;
-import com.intellij.openapi.editor.event.DocumentEvent;
-import javax.annotation.Nullable;
+import consulo.document.util.TextRange;
+import consulo.document.event.DocumentEvent;
+import jakarta.annotation.Nullable;
 
 /**
  * @author Gregory.Shrago

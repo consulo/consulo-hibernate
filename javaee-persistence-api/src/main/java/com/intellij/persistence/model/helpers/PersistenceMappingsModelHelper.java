@@ -17,7 +17,7 @@
 package com.intellij.persistence.model.helpers;
 
 import com.intellij.persistence.model.*;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import java.util.List;
 

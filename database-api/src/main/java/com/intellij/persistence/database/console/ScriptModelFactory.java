@@ -1,19 +1,19 @@
 package com.intellij.persistence.database.console;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
-import com.intellij.openapi.editor.Document;
-import com.intellij.openapi.extensions.ExtensionPointName;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiFile;
-import com.intellij.util.Function;
+import consulo.document.Document;
+import consulo.component.extension.ExtensionPointName;
+import consulo.document.util.TextRange;
+import consulo.language.psi.PsiFile;
+import java.util.function.Function;
 
 /**
  * @author Gregory.Shrago
  */
 public abstract class ScriptModelFactory {
 
-  public static ExtensionPointName<ScriptModelFactory> EP_NAME = ExtensionPointName.create("com.intellij.persistence.database.consoleScriptModelFactory");
+  public static ExtensionPointName<ScriptModelFactory> EP_NAME = ExtensionPointName.create(ScriptModelFactory.class);
 
   @Nullable
   public abstract ScriptModel getScriptModel(final PsiFile file);

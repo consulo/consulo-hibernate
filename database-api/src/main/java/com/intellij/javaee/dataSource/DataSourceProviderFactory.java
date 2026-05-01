@@ -15,15 +15,15 @@
  */
 package com.intellij.javaee.dataSource;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
-import com.intellij.openapi.extensions.ExtensionPointName;
+import consulo.component.extension.ExtensionPointName;
 
 /**
  * author: lesya
  */
 public interface DataSourceProviderFactory {
-  ExtensionPointName<DataSourceProviderFactory> EP_NAME = ExtensionPointName.create("com.intellij.persistence.database.dataSourceProviderFactory");
+  ExtensionPointName<DataSourceProviderFactory> EP_NAME = ExtensionPointName.create(DataSourceProviderFactory.class);
 
   @Nullable
   DataSourceProvider getDataSourceProvider(final String name);

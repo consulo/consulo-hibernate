@@ -16,8 +16,8 @@
 
 package com.intellij.persistence.facet;
 
-import javax.annotation.Nullable;
-import com.intellij.psi.util.PropertyMemberType;
+import jakarta.annotation.Nullable;
+import com.intellij.java.language.psi.util.PropertyMemberType;
 
 /**
  * @author Gregory.Shrago

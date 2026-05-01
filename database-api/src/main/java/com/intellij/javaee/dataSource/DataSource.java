@@ -15,28 +15,28 @@
  */
 package com.intellij.javaee.dataSource;
 
-import static com.intellij.javaee.dataSource.SQLUtil.getResultSetStringSafe;
-import com.intellij.openapi.progress.EmptyProgressIndicator;
-import com.intellij.openapi.progress.ProcessCanceledException;
-import com.intellij.openapi.progress.ProgressIndicator;
-import com.intellij.openapi.progress.ProgressManager;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.util.Pair;
-import com.intellij.openapi.util.Ref;
-import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.persistence.DatabaseMessages;
 import com.intellij.persistence.database.DataSourceInfo;
 import com.intellij.persistence.database.DbUtil;
-import com.intellij.util.ArrayUtil;
-import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.xmlb.XmlSerializer;
-import com.intellij.util.xmlb.annotations.Transient;
+import consulo.application.progress.EmptyProgressIndicator;
+import consulo.application.progress.ProgressIndicator;
+import consulo.application.progress.ProgressManager;
+import consulo.component.ProcessCanceledException;
+import consulo.project.Project;
+import consulo.util.collection.ArrayUtil;
+import consulo.util.collection.ContainerUtil;
+import consulo.util.lang.Comparing;
+import consulo.util.lang.ExceptionUtil;
+import consulo.util.lang.Pair;
+import consulo.util.lang.StringUtil;
+import consulo.util.lang.ref.Ref;
+import consulo.util.xml.serializer.XmlSerializer;
+import consulo.util.xml.serializer.annotation.Transient;
 import gnu.trove.THashSet;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -45,6 +45,8 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+
+import static com.intellij.javaee.dataSource.SQLUtil.getResultSetStringSafe;
 
 /**
  * @author cdr
@@ -388,7 +390,7 @@ public abstract class DataSource implements DataSourceInfo {
 
   private static void calculateSchemas(final Collection<DatabaseTableData> tables, final Set<String> schemas) {
     for (DatabaseTableData table : tables) {
-      ContainerUtil.addIfNotNull(table.getSchema(), schemas);
+      ContainerUtil.addIfNotNull(schemas, table.getSchema());
     }
   }
 
@@ -443,6 +445,6 @@ public abstract class DataSource implements DataSourceInfo {
   }
 
   private static String throwableToString(Throwable throwable) {
-    return StringUtil.getThrowableText(throwable, "com.intellij.");
+    return ExceptionUtil.getThrowableText(throwable, "com.intellij.");
   }
 }

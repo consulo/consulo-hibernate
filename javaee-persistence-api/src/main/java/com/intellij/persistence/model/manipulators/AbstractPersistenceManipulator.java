@@ -18,12 +18,12 @@ package com.intellij.persistence.model.manipulators;
 
 import java.util.Collection;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import com.intellij.jam.model.common.CommonModelElement;
-import com.intellij.openapi.util.Comparing;
-import com.intellij.psi.PsiElement;
-import com.intellij.util.containers.ContainerUtil;
+import consulo.util.lang.Comparing;
+import consulo.language.psi.PsiElement;
+import consulo.util.collection.ContainerUtil;
 
 /**
  * @author Gregory.Shrago
@@ -43,7 +43,7 @@ public abstract class AbstractPersistenceManipulator<T> implements PersistenceMa
   public void addAffectedElements(@Nonnull final Collection<PsiElement> affectedElements) {
     final T target = getManipulatorTarget();
     if (target instanceof CommonModelElement) {
-      ContainerUtil.addIfNotNull(((CommonModelElement)target).getIdentifyingPsiElement(), affectedElements);
+      ContainerUtil.addIfNotNull(affectedElements, ((CommonModelElement)target).getIdentifyingPsiElement());
     }
   }
 

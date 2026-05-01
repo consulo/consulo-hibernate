@@ -1,22 +1,22 @@
 package com.intellij.hibernate.springIntegration;
 
-import com.intellij.facet.FacetManager;
+import consulo.module.extension.ModuleExtensionHelper;
 import com.intellij.hibernate.HibernateInspectionToolProvider;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.hibernate.facet.HibernateFacetType;
 import com.intellij.j2ee.J2EETestCase;
 import com.intellij.javaee.dataSource.DataSource;
 import com.intellij.jpa.JpaInspectionToolProvider;
-import com.intellij.openapi.application.PathManager;
-import com.intellij.openapi.application.Result;
-import com.intellij.openapi.command.WriteCommandAction;
-import com.intellij.openapi.util.Pair;
-import com.intellij.openapi.vfs.VirtualFile;
+import consulo.application.PathManager;
+import consulo.application.Result;
+import consulo.language.editor.WriteCommandAction;
+import consulo.util.lang.Pair;
+import consulo.virtualFileSystem.VirtualFile;
 import com.intellij.persistence.model.PersistenceMappings;
 import com.intellij.persistence.model.PersistencePackage;
 import com.intellij.persistence.roles.PersistenceRoleHolder;
 import com.intellij.persistence.util.PersistenceCommonUtil;
-import com.intellij.psi.xml.XmlFile;
+import consulo.xml.language.psi.XmlFile;
 import com.intellij.spring.facet.SpringFacet;
 import com.intellij.spring.facet.SpringFacetConfiguration;
 import com.intellij.spring.facet.SpringFacetType;
@@ -25,8 +25,8 @@ import com.intellij.spring.model.highlighting.SpringModelInspection;
 import com.intellij.testFramework.PsiTestUtil;
 import com.intellij.testFramework.builders.JavaModuleFixtureBuilder;
 import com.intellij.testFramework.fixtures.JavaCodeInsightFixtureTestCase;
-import com.intellij.util.xml.GenericValue;
-import com.intellij.codeInspection.InspectionToolProvider;
+import consulo.xml.dom.GenericValue;
+import consulo.language.editor.inspection.InspectionToolProvider;
 
 import java.io.File;
 import java.util.List;
@@ -114,10 +114,10 @@ public class SpringIntegrationTest extends JavaCodeInsightFixtureTestCase {
   protected Pair<HibernateFacet, SpringFacet> setupFacets() {
     return new WriteCommandAction<Pair<HibernateFacet, SpringFacet>>(getProject()) {
       protected void run(final Result<Pair<HibernateFacet, SpringFacet>> result) throws Throwable {
-        final SpringFacet springFacet =
-          FacetManager.getInstance(myModule).addFacet(SpringFacetType.INSTANCE, SpringFacetType.INSTANCE.getPresentableName(), null);
+        // TODO: FacetManager.addFacet() removed; Spring facet creation needs its own migration
+        final SpringFacet springFacet = null; // TODO: SpringFacetType.INSTANCE equivalent for Consulo 3
         HibernateFacetType type = HibernateFacetType.INSTANCE;
-        final HibernateFacet facet = FacetManager.getInstance(myModule).addFacet(type, type.getPresentableName(), null);
+        final HibernateFacet facet = type.createFacet(myModule, type.getDefaultFacetName(), type.createDefaultConfiguration());
         //facet.getConfiguration().getDescriptorsConfiguration().addConfigFile(HibernateDescriptorsConstants.HIBERNATE_CONFIGURATION_META_DATA, cfgXml.getUrl());
 
         result.setResult(Pair.create(facet, springFacet));

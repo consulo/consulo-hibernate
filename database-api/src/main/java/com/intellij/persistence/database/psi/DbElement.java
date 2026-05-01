@@ -1,12 +1,12 @@
 package com.intellij.persistence.database.psi;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
-import com.intellij.ide.util.treeView.WeighedItem;
-import com.intellij.navigation.NavigationItem;
-import com.intellij.psi.PsiNamedElement;
-import com.intellij.psi.meta.PsiPresentableMetaData;
+import consulo.component.util.WeighedItem;
+import consulo.navigation.NavigationItem;
+import consulo.language.psi.PsiNamedElement;
+import consulo.language.psi.meta.PsiPresentableMetaData;
 
 /**
  * @author Gregory.Shrago

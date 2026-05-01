@@ -16,19 +16,20 @@
 
 package com.intellij.persistence.roles;
 
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.javaee.model.role.ClassRoleManager;
+import com.intellij.persistence.model.PersistenceQuery;
+import consulo.annotation.component.ComponentScope;
+import consulo.annotation.component.ServiceAPI;
+import consulo.java.persistence.module.extension.PersistenceModuleExtension;
+import consulo.project.Project;
+import consulo.util.dataholder.Key;
+import jakarta.annotation.Nonnull;
+
 import java.util.Collection;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-
-import com.intellij.javaee.model.role.ClassRoleManager;
-import com.intellij.openapi.components.ServiceManager;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Key;
-import com.intellij.persistence.model.PersistenceQuery;
-import com.intellij.psi.PsiClass;
-import consulo.java.persistence.module.extension.PersistenceModuleExtension;
-
+@ServiceAPI(ComponentScope.PROJECT)
 public abstract class PersistenceRoleHolder
 {
 	public static final Key<PersistenceClassRole> PERSISTENCE_CLASS_ROLES_KEY = Key.create("PERSISTENCE_CLASS_ROLES_KEY");
@@ -38,7 +39,7 @@ public abstract class PersistenceRoleHolder
 
 	public static PersistenceRoleHolder getInstance(Project project)
 	{
-		return ServiceManager.getService(project, PersistenceRoleHolder.class);
+		return project.getInstance(PersistenceRoleHolder.class);
 	}
 
 	@Nonnull

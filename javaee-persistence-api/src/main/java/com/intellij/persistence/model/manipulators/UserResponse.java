@@ -16,23 +16,23 @@
 
 package com.intellij.persistence.model.manipulators;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.util.Pair;
-import com.intellij.openapi.vfs.VirtualFile;
+import consulo.module.Module;
+import consulo.util.lang.Pair;
+import consulo.virtualFileSystem.VirtualFile;
 import com.intellij.persistence.facet.PersistenceFacetBase;
 import com.intellij.persistence.facet.PersistenceFacetConfiguration;
 import com.intellij.persistence.model.PersistenceMappings;
 import com.intellij.persistence.model.PersistencePackage;
 import com.intellij.persistence.model.PersistentObject;
 import com.intellij.persistence.model.RelationshipType;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiDirectory;
-import com.intellij.psi.PsiType;
-import com.intellij.util.Function;
+import com.intellij.java.language.psi.PsiClass;
+import consulo.language.psi.PsiDirectory;
+import com.intellij.java.language.psi.PsiType;
+import java.util.function.Function;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * @author Gregory.Shrago

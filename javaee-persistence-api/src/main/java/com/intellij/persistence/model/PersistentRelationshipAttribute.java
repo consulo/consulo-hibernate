@@ -16,8 +16,8 @@
 
 package com.intellij.persistence.model;
 
-import com.intellij.psi.PsiClass;
-import com.intellij.util.xml.GenericValue;
+import com.intellij.java.language.psi.PsiClass;
+import consulo.xml.dom.GenericValue;
 import com.intellij.persistence.model.helpers.PersistentRelationshipAttributeModelHelper;
 
 /**

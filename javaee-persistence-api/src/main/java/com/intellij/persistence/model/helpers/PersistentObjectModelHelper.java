@@ -17,9 +17,9 @@
 package com.intellij.persistence.model.helpers;
 
 import com.intellij.persistence.model.PersistentAttribute;
-import com.intellij.psi.util.PropertyMemberType;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import com.intellij.java.language.psi.util.PropertyMemberType;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import java.util.List;
 

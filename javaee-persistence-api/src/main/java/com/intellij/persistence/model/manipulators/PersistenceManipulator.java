@@ -16,8 +16,8 @@
 
 package com.intellij.persistence.model.manipulators;
 
-import com.intellij.psi.PsiElement;
-import com.intellij.util.xml.Intersect;
+import consulo.language.psi.PsiElement;
+import consulo.xml.dom.Intersect;
 
 import java.util.Collection;
 import java.util.List;

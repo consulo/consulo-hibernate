@@ -17,8 +17,8 @@
 package com.intellij.persistence.model;
 
 import com.intellij.jam.model.common.CommonModelElement;
-import com.intellij.psi.PsiType;
-import com.intellij.util.xml.GenericValue;
+import com.intellij.java.language.psi.PsiType;
+import consulo.xml.dom.GenericValue;
 
 /**
  * @author Gregory.Shrago

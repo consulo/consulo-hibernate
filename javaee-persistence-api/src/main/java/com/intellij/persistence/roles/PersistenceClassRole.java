@@ -16,14 +16,14 @@
 
 package com.intellij.persistence.roles;
 
-import com.intellij.openapi.module.Module;
+import consulo.module.Module;
 import com.intellij.persistence.facet.PersistenceFacetBase;
 import com.intellij.persistence.facet.PersistenceFacetConfiguration;
 import com.intellij.persistence.model.PersistencePackage;
 import com.intellij.persistence.model.PersistentObject;
 import com.intellij.persistence.model.PersistenceListener;
 
-import javax.swing.*;
+import consulo.ui.image.Image;
 
 /**
  * @author Gregory.Shrago
@@ -36,7 +36,7 @@ public interface PersistenceClassRole {
 
   String getTitle();
 
-  Icon getIcon();
+  Image getIcon();
 
   Module getModule();
 

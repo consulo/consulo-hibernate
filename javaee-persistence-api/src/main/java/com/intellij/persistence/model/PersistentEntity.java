@@ -17,7 +17,7 @@
 package com.intellij.persistence.model;
 
 import com.intellij.persistence.model.helpers.PersistentEntityModelHelper;
-import com.intellij.util.xml.GenericValue;
+import consulo.xml.dom.GenericValue;
 
 /**
  * @author Gregory.Shrago

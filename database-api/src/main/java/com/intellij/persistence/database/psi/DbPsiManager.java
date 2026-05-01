@@ -1,10 +1,9 @@
 package com.intellij.persistence.database.psi;
 
-import com.intellij.openapi.actionSystem.Presentation;
+import consulo.ui.ex.action.Presentation;
+import jakarta.annotation.Nullable;
 
 import java.util.List;
-
-import javax.annotation.Nullable;
 
 /**
  * @author Gregory.Shrago

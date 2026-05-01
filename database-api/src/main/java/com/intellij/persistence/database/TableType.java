@@ -1,6 +1,6 @@
 package com.intellij.persistence.database;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 import com.intellij.persistence.DatabaseMessages;
 

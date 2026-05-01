@@ -16,7 +16,7 @@
 
 package com.intellij.persistence.model.manipulators;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 import java.util.Collection;
 

@@ -1,8 +1,8 @@
 package com.intellij.persistence;
 
 import com.intellij.persistence.database.psi.DbDataSourceElement;
-import com.intellij.openapi.util.Key;
-import com.intellij.ide.dnd.DnDTarget;
+import consulo.util.dataholder.Key;
+import consulo.ui.ex.awt.dnd.DnDTarget;
 
 /**
  * @author Gregory.Shrago

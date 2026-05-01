@@ -16,10 +16,10 @@
 
 package com.intellij.persistence.model.validators;
 
-import com.intellij.codeInspection.ProblemsHolder;
+import consulo.language.editor.inspection.ProblemsHolder;
 import com.intellij.persistence.model.*;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiType;
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.java.language.psi.PsiType;
 
 /**
  * @author Gregory.Shrago

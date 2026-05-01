@@ -15,11 +15,11 @@
  */
 package com.intellij.javaee.dataSource;
 
-import com.intellij.openapi.util.text.StringUtil;
+import consulo.util.lang.StringUtil;
 import com.intellij.persistence.database.DatabaseColumnInfo;
 import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

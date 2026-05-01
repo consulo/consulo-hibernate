@@ -17,10 +17,10 @@
 package com.intellij.persistence.model;
 
 import com.intellij.jam.model.common.CommonModelElement;
-import com.intellij.openapi.util.Key;
-import com.intellij.openapi.util.UserDataHolder;
+import consulo.util.dataholder.Key;
+import consulo.util.dataholder.UserDataHolder;
 import com.intellij.persistence.model.helpers.PersistenceUnitModelHelper;
-import com.intellij.util.xml.GenericValue;
+import consulo.xml.dom.GenericValue;
 
 /**
  * @author Gregory.Shrago

@@ -1,6 +1,6 @@
 package com.intellij.persistence.database.psi;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 import com.intellij.persistence.DatabaseMessages;
 import org.jetbrains.annotations.Nls;

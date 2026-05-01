@@ -1,11 +1,11 @@
 package com.intellij.persistence.util;
 
 import com.intellij.persistence.database.DatabaseColumnInfo;
-import com.intellij.psi.CommonClassNames;
-import com.intellij.psi.util.PsiTypesUtil;
+import com.intellij.java.language.psi.CommonClassNames;
+import com.intellij.java.language.psi.util.PsiTypesUtil;
 import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import java.sql.Types;
 

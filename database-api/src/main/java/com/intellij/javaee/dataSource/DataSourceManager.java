@@ -15,11 +15,11 @@
  */
 package com.intellij.javaee.dataSource;
 
-import com.intellij.openapi.Disposable;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.ModificationTracker;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import consulo.disposer.Disposable;
+import consulo.project.Project;
+import consulo.component.util.ModificationTracker;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import java.util.List;
 

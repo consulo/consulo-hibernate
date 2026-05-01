@@ -1,24 +1,24 @@
 package com.intellij.persistence.database.psi;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.intellij.openapi.Disposable;
-import com.intellij.openapi.components.ServiceManager;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.ModificationTracker;
-import com.intellij.openapi.util.ModificationTrackerListener;
-import com.intellij.persistence.database.DataSourceInfo;
 import com.intellij.persistence.DatabaseMessages;
+import com.intellij.persistence.database.DataSourceInfo;
+import consulo.annotation.component.ComponentScope;
+import consulo.annotation.component.ServiceAPI;
+import consulo.component.util.ModificationTracker;
+import consulo.disposer.Disposable;
+import consulo.project.Project;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * @author Gregory.Shrago
  */
-public abstract class DbPsiFacade implements ModificationTracker{
+@ServiceAPI(ComponentScope.PROJECT)
+public abstract class DbPsiFacade implements ModificationTracker {
   public static final String DATABASE_TOOLWINDOW_ID = DatabaseMessages.message("title.toolwindow.database");
 
   public static DbPsiFacade getInstance(Project project) {
-    return ServiceManager.getService(project, DbPsiFacade.class);
+    return project.getInstance(DbPsiFacade.class);
   }
 
   public abstract Project getProject();

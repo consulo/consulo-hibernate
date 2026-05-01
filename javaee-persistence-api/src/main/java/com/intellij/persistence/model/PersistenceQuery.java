@@ -18,9 +18,9 @@ package com.intellij.persistence.model;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import com.intellij.jam.model.common.CommonModelElement;
-import com.intellij.util.xml.GenericValue;
+import consulo.xml.dom.GenericValue;
 
 /**
  * @author Gregory.Shrago

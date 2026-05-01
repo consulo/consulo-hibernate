@@ -16,16 +16,16 @@
 
 package com.intellij.persistence.model.manipulators;
 
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.Presentation;
-import com.intellij.psi.PsiElement;
-import com.intellij.util.xml.NameValue;
-import com.intellij.util.xml.PrimaryKey;
-import com.intellij.util.IncorrectOperationException;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import consulo.ui.ex.action.AnActionEvent;
+import consulo.ui.ex.action.Presentation;
+import consulo.language.psi.PsiElement;
+import consulo.xml.dom.NameValue;
+import consulo.xml.dom.PrimaryKey;
+import consulo.language.util.IncorrectOperationException;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
-import javax.swing.*;
+import consulo.ui.image.Image;
 import java.util.Collection;
 import java.util.Map;
 
@@ -39,7 +39,7 @@ public abstract class AbstractPersistenceAction<V extends PersistenceManipulator
   private final String myActionName;
 
   public AbstractPersistenceAction(final V manipulator, final String actionName, final String actionTitle,
-                                   final Icon icon) {
+                                   final Image icon) {
     myManipulator = manipulator;
     myActionName = actionName;
     myPresentation = new Presentation();

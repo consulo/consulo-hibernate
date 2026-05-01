@@ -1,10 +1,10 @@
 package com.intellij.persistence.database.psi;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import com.intellij.persistence.database.DataSourceInfo;
 import com.intellij.persistence.database.DatabaseConnectionInfo;
-import com.intellij.util.ArrayFactory;
+import consulo.util.collection.ArrayFactory;
 
 /**
  * @author Gregory.Shrago

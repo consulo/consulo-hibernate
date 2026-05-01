@@ -1,17 +1,17 @@
 package com.intellij.persistence.database;
 
-import com.intellij.openapi.extensions.ExtensionPointName;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.LabeledComponent;
-import com.intellij.openapi.ui.TextFieldWithBrowseButton;
-import com.intellij.openapi.module.Module;
-import com.intellij.util.PathsList;
+import consulo.component.extension.ExtensionPointName;
+import consulo.module.Module;
+import consulo.project.Project;
+import consulo.ui.ex.awt.LabeledComponent;
+import consulo.ui.ex.awt.TextFieldWithBrowseButton;
+import consulo.virtualFileSystem.util.PathsList;
 
 /**
  * @author Gregory.Shrago
  */
 public interface DatabaseImplHelper {
-  ExtensionPointName<DatabaseImplHelper> EP_NAME = ExtensionPointName.create("com.intellij.persistence.database.implHelper");
+  ExtensionPointName<DatabaseImplHelper> EP_NAME = ExtensionPointName.create(DatabaseImplHelper.class);
 
   void setupPsiClassField(final Project project, LabeledComponent<TextFieldWithBrowseButton> field);
 

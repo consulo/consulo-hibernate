@@ -16,7 +16,7 @@
 
 package com.intellij.persistence.model.helpers;
 
-import com.intellij.util.xml.GenericValue;
+import consulo.xml.dom.GenericValue;
 
 import java.util.List;
 

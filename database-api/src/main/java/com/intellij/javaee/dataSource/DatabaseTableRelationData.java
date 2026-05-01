@@ -19,7 +19,7 @@ package com.intellij.javaee.dataSource;
 import com.intellij.persistence.database.DatabaseColumnInfo;
 import com.intellij.persistence.database.DatabaseReferenceConstraintInfo;
 import com.intellij.persistence.database.DbUtil;
-import com.intellij.util.xmlb.XmlSerializer;
+import consulo.util.xml.serializer.XmlSerializer;
 import org.jdom.Element;
 import org.jetbrains.annotations.NonNls;
 

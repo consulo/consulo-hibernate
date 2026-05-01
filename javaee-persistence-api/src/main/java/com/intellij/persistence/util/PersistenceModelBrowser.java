@@ -16,17 +16,17 @@
 
 package com.intellij.persistence.util;
 
-import com.intellij.openapi.util.Condition;
+import consulo.util.lang.function.Condition;
 import com.intellij.persistence.facet.PersistenceFacetBase;
 import com.intellij.persistence.facet.PersistenceFacetConfiguration;
 import com.intellij.persistence.model.*;
 import com.intellij.persistence.roles.PersistenceClassRole;
 import com.intellij.persistence.roles.PersistenceClassRoleEnum;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiMember;
-import com.intellij.util.Query;
-import javax.annotation.Nonnull;
+import com.intellij.java.language.psi.PsiClass;
+import consulo.language.psi.PsiElement;
+import com.intellij.java.language.psi.PsiMember;
+import consulo.application.util.query.Query;
+import jakarta.annotation.Nonnull;
 
 import java.util.List;
 

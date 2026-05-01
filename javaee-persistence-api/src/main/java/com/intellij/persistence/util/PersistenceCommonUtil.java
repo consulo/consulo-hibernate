@@ -26,23 +26,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import org.jetbrains.annotations.NonNls;
 import com.intellij.jam.model.util.JamCommonUtil;
-import com.intellij.openapi.module.Module;
-import com.intellij.openapi.module.ModuleManager;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.roots.ModuleRootManager;
-import com.intellij.openapi.roots.ProjectRootManager;
-import com.intellij.openapi.util.Comparing;
-import com.intellij.openapi.util.Condition;
-import com.intellij.openapi.util.Key;
-import com.intellij.openapi.util.Pair;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.persistence.PersistenceHelper;
+import consulo.module.Module;
+import consulo.module.ModuleManager;
+import consulo.project.Project;
+import consulo.module.content.ModuleRootManager;
+import consulo.module.content.ProjectRootManager;
+import consulo.util.lang.Comparing;
+import consulo.util.lang.function.Condition;
+import consulo.util.dataholder.Key;
+import consulo.util.lang.Pair;
+import consulo.util.lang.StringUtil;
+import consulo.virtualFileSystem.VirtualFile;
+import com.intellij.persistence.facet.PersistenceHelper;
 import com.intellij.persistence.facet.PersistenceFacetBase;
 import com.intellij.persistence.model.PersistenceMappings;
 import com.intellij.persistence.model.PersistencePackage;
@@ -54,33 +54,33 @@ import com.intellij.persistence.model.TableInfoProvider;
 import com.intellij.persistence.roles.PersistenceClassRole;
 import com.intellij.persistence.roles.PersistenceClassRoleEnum;
 import com.intellij.persistence.roles.PersistenceRoleHolder;
-import com.intellij.psi.JavaPsiFacade;
-import com.intellij.psi.PsiArrayType;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiClassType;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiManager;
-import com.intellij.psi.PsiMember;
-import com.intellij.psi.PsiType;
-import com.intellij.psi.PsiTypeParameter;
-import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.psi.search.ProjectScope;
-import com.intellij.psi.util.CachedValue;
-import com.intellij.psi.util.CachedValueProvider;
-import com.intellij.psi.util.CachedValuesManager;
-import com.intellij.psi.util.PropertyUtil;
-import com.intellij.psi.util.PsiTreeUtil;
-import com.intellij.psi.util.PsiUtilBase;
-import com.intellij.psi.util.TypeConversionUtil;
-import com.intellij.util.ExecutorsQuery;
-import com.intellij.util.Function;
-import com.intellij.util.Processor;
-import com.intellij.util.Query;
-import com.intellij.util.QueryExecutor;
-import com.intellij.util.containers.ContainerUtil;
-import com.intellij.util.xml.DomElement;
-import com.intellij.util.xml.DomUtil;
-import com.intellij.util.xml.GenericValue;
+import com.intellij.java.language.psi.JavaPsiFacade;
+import com.intellij.java.language.psi.PsiArrayType;
+import com.intellij.java.language.psi.PsiClass;
+import com.intellij.java.language.psi.PsiClassType;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiManager;
+import com.intellij.java.language.psi.PsiMember;
+import com.intellij.java.language.psi.PsiType;
+import com.intellij.java.language.psi.PsiTypeParameter;
+import consulo.language.psi.scope.GlobalSearchScope;
+import consulo.project.content.scope.ProjectScopes;
+import consulo.application.util.CachedValue;
+import consulo.application.util.CachedValueProvider;
+import consulo.application.util.CachedValuesManager;
+import com.intellij.java.language.psi.util.PropertyUtil;
+import consulo.language.psi.util.PsiTreeUtil;
+import consulo.language.editor.util.PsiUtilBase;
+import com.intellij.java.language.psi.util.TypeConversionUtil;
+import consulo.application.util.query.ExecutorsQuery;
+import java.util.function.Function;
+import consulo.application.util.function.Processor;
+import consulo.application.util.query.Query;
+import consulo.application.util.query.QueryExecutor;
+import consulo.util.collection.ContainerUtil;
+import consulo.xml.dom.DomElement;
+import consulo.xml.dom.DomUtil;
+import consulo.xml.dom.GenericValue;
 import consulo.java.persistence.module.extension.PersistenceModuleExtension;
 import consulo.module.extension.ModuleExtension;
 
@@ -219,7 +219,7 @@ public class PersistenceCommonUtil
 	{
 		for(PersistenceClassRole role : getPersistenceRoles(sourceClass))
 		{
-			ContainerUtil.addIfNotNull(role.getPersistenceUnit(), result);
+			ContainerUtil.addIfNotNull(result, role.getPersistenceUnit());
 		}
 		return result;
 	}
@@ -248,7 +248,7 @@ public class PersistenceCommonUtil
 		}
 		for(GenericValue<V> value : unit.getModelHelper().getMappingFiles(mappingsClass))
 		{
-			ContainerUtil.addIfNotNull(value.getValue(), result);
+			ContainerUtil.addIfNotNull(result, value.getValue());
 		}
 		return result;
 	}
@@ -291,7 +291,7 @@ public class PersistenceCommonUtil
 			{
 				if((facet == null || facet == role.getFacet()) && (unit == null || unit == role.getPersistenceUnit()))
 				{
-					ContainerUtil.addIfNotNull(mapper.fun(role), result);
+					ContainerUtil.addIfNotNull(result, mapper.apply(role));
 				}
 			}
 		}
@@ -343,7 +343,7 @@ public class PersistenceCommonUtil
 			return Pair.create(null, type);
 		}
 		final PsiManager manager = psiClass.getManager();
-		final GlobalSearchScope scope = ProjectScope.getAllScope(manager.getProject());
+		final GlobalSearchScope scope = (GlobalSearchScope) ProjectScopes.getAllScope(manager.getProject());
 		for(JavaContainerType collectionType : JavaContainerType.values())
 		{
 			if(collectionType == JavaContainerType.ARRAY)
@@ -374,7 +374,7 @@ public class PersistenceCommonUtil
 		return new ExecutorsQuery<>(mappings, Collections.<QueryExecutor<PersistentObject, PersistenceMappings>>singletonList(new QueryExecutor<PersistentObject, PersistenceMappings>()
 		{
 
-			public boolean execute(PersistenceMappings queryParameters, Processor<PersistentObject> consumer)
+			public boolean execute(PersistenceMappings queryParameters, java.util.function.Predicate<? super PersistentObject> consumer)
 			{
 				if(!ContainerUtil.process(queryParameters.getModelHelper().getPersistentEntities(), consumer))
 				{
