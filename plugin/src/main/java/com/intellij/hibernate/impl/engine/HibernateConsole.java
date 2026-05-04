@@ -20,7 +20,7 @@ import com.intellij.persistence.run.ConsoleRunConfiguration;
 import com.intellij.persistence.util.PersistenceCommonUtil;
 import com.intellij.persistence.util.PersistenceModelBrowser;
 import com.intellij.ql.psi.QlFile;
-import com.intellij.ql.psi.impl.QLLanguage;
+import consulo.sql.language.SqlLanguage;
 import consulo.application.Result;
 import consulo.application.util.function.Processor;
 import consulo.codeEditor.Editor;
@@ -325,7 +325,7 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
     }
 
     protected boolean isHibernate() {
-      return myFacet.getQlLanguage() == QLLanguage.HIBERNATE_QL;
+      return myFacet.getQlLanguage() == SqlLanguage.INSTANCE;
     }
 
     @Nonnull

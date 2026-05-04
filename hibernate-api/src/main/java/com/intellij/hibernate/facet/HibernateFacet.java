@@ -26,7 +26,7 @@ import com.intellij.persistence.model.validators.ModelValidator;
 import com.intellij.persistence.util.PersistenceCommonUtil;
 import com.intellij.persistence.util.PersistenceModelBrowser;
 import com.intellij.java.language.LanguageLevel;
-import com.intellij.ql.psi.impl.QLLanguage;
+import consulo.sql.language.SqlLanguage;
 import consulo.application.ApplicationManager;
 import consulo.application.util.CachedValue;
 import consulo.application.util.CachedValueProvider;
@@ -192,7 +192,7 @@ public class HibernateFacet extends PersistenceFacetBase<HibernateFacetConfigura
   }
 
   public Language getQlLanguage() {
-    return QLLanguage.HIBERNATE_QL;
+    return SqlLanguage.INSTANCE;
   }
 
   @Nonnull

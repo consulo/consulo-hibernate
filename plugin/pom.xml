@@ -57,6 +57,7 @@
                         <dependency>com.intellij.spring</dependency>
                         <dependency>org.jetbrains.plugins.yaml</dependency>
                         <dependency>consulo.json</dependency>
+                        <dependency>consulo.sql</dependency>
                     </dependencies>
                     <packaging>
                         <skip>${dev.mode}</skip>
@@ -163,6 +164,12 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>consulo.database</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>consulo.sql.language.api</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>

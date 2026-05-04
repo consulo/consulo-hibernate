@@ -3,7 +3,7 @@
 
 package com.intellij.hibernate.model.xml.config;
 
-import com.intellij.javaee.model.xml.CommonDomModelRootElement;
+import com.intellij.jam.model.common.CommonDomModelRootElement;
 import consulo.xml.dom.Required;
 import jakarta.annotation.Nonnull;
 

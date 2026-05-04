@@ -25,7 +25,7 @@ import com.intellij.hibernate.impl.facet.HibernateFacetType;
 import com.intellij.hibernate.model.HibernateConstants;
 import static com.intellij.hibernate.model.HibernateDescriptorsConstants.HIBERNATE_CONFIGURATION_META_DATA;
 import com.intellij.hibernate.model.xml.config.HibernateConfiguration;
-import com.intellij.javaee.util.JamCommonUtil;
+import com.intellij.jam.model.util.JamCommonUtil;
 import consulo.language.editor.annotation.HighlightSeverity;
 import consulo.language.editor.WriteCommandAction;
 import consulo.codeEditor.Editor;

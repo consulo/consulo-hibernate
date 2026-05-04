@@ -11,7 +11,7 @@ import com.intellij.hibernate.model.converters.CascadeTypeListConverter;
 import com.intellij.persistence.util.BidirectionalMultiMap;
 import com.intellij.hibernate.model.enums.AccessType;
 import com.intellij.hibernate.model.enums.CascadeType;
-import com.intellij.javaee.model.xml.CommonDomModelRootElement;
+import com.intellij.jam.model.common.CommonDomModelRootElement;
 import com.intellij.javaee.model.JavaeePersistenceORMResolveConverters;
 import com.intellij.javaee.model.xml.converters.PackageNameConverter;
 import com.intellij.persistence.model.PersistenceMappings;

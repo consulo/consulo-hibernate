@@ -3,7 +3,7 @@ package com.intellij.hibernate.springIntegration;
 import com.intellij.hibernate.model.xml.config.HibernateConfiguration;
 import com.intellij.hibernate.model.xml.config.SessionFactory;
 import com.intellij.hibernate.util.HibernateUtil;
-import com.intellij.javaee.util.JamCommonUtil;
+import com.intellij.jam.model.util.JamCommonUtil;
 import consulo.language.psi.*;
 import consulo.module.Module;
 import consulo.util.dataholder.Key;

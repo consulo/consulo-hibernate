@@ -8,7 +8,7 @@ import com.intellij.hibernate.model.xml.config.Property;
 import com.intellij.hibernate.model.xml.config.SessionFactory;
 import com.intellij.hibernate.model.xml.mapping.*;
 import com.intellij.javaee.JavaeeUtil;
-import com.intellij.javaee.util.JamCommonUtil;
+import com.intellij.jam.model.util.JamCommonUtil;
 import consulo.module.Module;
 import consulo.util.lang.Comparing;
 import consulo.util.lang.StringUtil;

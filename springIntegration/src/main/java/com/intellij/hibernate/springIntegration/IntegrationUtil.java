@@ -5,7 +5,7 @@
 package com.intellij.hibernate.springIntegration;
 
 import com.intellij.hibernate.facet.HibernateFacet;
-import com.intellij.javaee.util.JamCommonUtil;
+import com.intellij.jam.model.util.JamCommonUtil;
 import consulo.util.lang.Comparing;
 import consulo.util.lang.Pair;
 import consulo.util.lang.StringUtil;

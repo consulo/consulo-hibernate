@@ -32,7 +32,6 @@ open module javaee.persistence.api {
     exports com.intellij.javaee.model.xml.persistence.mapping;
     exports com.intellij.javaee.module.view.dataSource;
     exports com.intellij.javaee.module.view.dataSource.classpath;
-    exports com.intellij.javaee.util;
     exports com.intellij.jpa;
     exports com.intellij.jpa.facet;
     exports com.intellij.jpa.highlighting;
@@ -51,6 +50,5 @@ open module javaee.persistence.api {
     exports com.intellij.persistence.run;
     exports com.intellij.persistence.util;
     exports com.intellij.ql.psi;
-    exports com.intellij.ql.psi.impl;
     exports consulo.java.persistence.module.extension;
 }

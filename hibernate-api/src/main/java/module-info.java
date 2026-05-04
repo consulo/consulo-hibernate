@@ -5,6 +5,8 @@
 open module hibernate.api {
     requires transitive javaee.persistence.api;
 
+    requires transitive consulo.sql.language.api;
+
     requires transitive consulo.localize.api;
 
     requires gnu.trove;
