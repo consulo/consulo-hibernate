@@ -5,6 +5,7 @@ import com.intellij.java.language.psi.PsiAnnotationMemberValue;
 import com.intellij.java.language.psi.PsiLiteralExpression;
 import com.intellij.java.language.psi.PsiNameValuePair;
 import consulo.document.util.TextRange;
+import consulo.java.persistence.module.extension.PersistenceModuleExtension;
 import consulo.language.inject.MultiHostRegistrar;
 import consulo.language.psi.ElementManipulators;
 import consulo.language.psi.PsiElement;
@@ -102,5 +103,22 @@ final class InjectionUtil {
             }
         }
         return null;
+    }
+
+    /**
+     * Asks the module's {@link PersistenceModuleExtension} (Hibernate / JPA / etc.) which dialect
+     * its runtime parses, falling back to the {@code fallbackVersionId} if no extension is enabled
+     * or the extension declares no preference.
+     */
+    @Nullable
+    static LanguageVersion preferredQlVersion(@Nonnull PsiElement context, @Nonnull String fallbackVersionId) {
+        PersistenceModuleExtension<?, ?> extension = PersistenceModuleExtension.findExtension(context);
+        if (extension != null) {
+            LanguageVersion declared = extension.getQlLanguage();
+            if (declared != null) {
+                return declared;
+            }
+        }
+        return findSqlVersionById(fallbackVersionId);
     }
 }

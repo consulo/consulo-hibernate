@@ -42,7 +42,7 @@ public class SpringDataQueryInjector implements MultiHostInjector {
 
         LanguageVersion version = InjectionUtil.isAttributeTrue(annotation, NATIVE_QUERY_ATTRIBUTE)
                 ? null
-                : InjectionUtil.findSqlVersionById(HQL_VERSION_ID);
+                : InjectionUtil.preferredQlVersion(literal, HQL_VERSION_ID);
         InjectionUtil.injectInto(registrar, literal, version);
     }
 }

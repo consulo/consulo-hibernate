@@ -23,4 +23,8 @@ open module hibernate.api {
     exports com.intellij.hibernate.model.xml.mapping;
     exports com.intellij.hibernate.util;
     exports com.intellij.hibernate.view;
+
+    exports com.intellij.hibernate.icon.icon;
+
+    exports consulo.hibernate.module.extension;
 }

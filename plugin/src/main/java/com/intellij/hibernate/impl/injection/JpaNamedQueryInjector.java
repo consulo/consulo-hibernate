@@ -35,7 +35,7 @@ public class JpaNamedQueryInjector implements MultiHostInjector {
 
         PsiAnnotation jpqlAnnotation = InjectionUtil.matchAnnotationAttribute(literal, NAMED_QUERY_FQN, QUERY_ATTRIBUTE);
         if (jpqlAnnotation != null) {
-            InjectionUtil.injectInto(registrar, literal, InjectionUtil.findSqlVersionById(JPQL_VERSION_ID));
+            InjectionUtil.injectInto(registrar, literal, InjectionUtil.preferredQlVersion(literal, JPQL_VERSION_ID));
             return;
         }
 

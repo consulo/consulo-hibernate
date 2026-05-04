@@ -45,6 +45,7 @@
 		<module>database-api</module>
 		<module>javaee-persistence-api</module>
 		<module>hibernate-api</module>
+		<module>maven-impl</module>
 		<module>plugin</module>
 		<module>springIntegration</module>
 	</modules>
