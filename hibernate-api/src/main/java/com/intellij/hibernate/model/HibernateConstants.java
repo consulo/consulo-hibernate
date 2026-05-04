@@ -1,11 +1,8 @@
 package com.intellij.hibernate.model;
 
 import org.jetbrains.annotations.NonNls;
-import com.intellij.hibernate.HibernateMessages;
 
 public interface HibernateConstants {
-  @NonNls String HIBERNATE_INSPECTIONS_GROUP = HibernateMessages.message("inspection.group.name.hibernate.issues");
-
   @NonNls String CFG_XML_ROOT_TAG = "hibernate-configuration";
   @NonNls String HBM_XML_ROOT_TAG = "hibernate-mapping";
 

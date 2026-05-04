@@ -1,6 +1,6 @@
 package com.intellij.hibernate.model.converters;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import consulo.module.content.ProjectFileIndex;
 import consulo.module.content.ProjectRootManager;
 import consulo.virtualFileSystem.util.VirtualFileUtil;
@@ -79,7 +79,7 @@ public abstract class MappingElementConverterBase extends ResolvingConverter<Psi
   protected abstract boolean isFileAccepted(final PsiFile file);
 
   public String getErrorMessage(@Nullable final String s, final ConvertContext context) {
-    return HibernateMessages.message("cannot.resolve.file.0");
+    return HibernateLocalize.cannotResolveFile0(s).get();
   }
 
 }

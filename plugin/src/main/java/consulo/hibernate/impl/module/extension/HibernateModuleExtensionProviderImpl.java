@@ -1,6 +1,7 @@
 package consulo.hibernate.impl.module.extension;
 
 import com.intellij.hibernate.icon.icon.HibernateIconGroup;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.hibernate.module.extension.HibernateModuleExtension;
 import consulo.localize.LocalizeValue;
@@ -33,7 +34,7 @@ public class HibernateModuleExtensionProviderImpl implements ModuleExtensionProv
     @Nonnull
     @Override
     public LocalizeValue getName() {
-        return LocalizeValue.localizeTODO("Hibernate");
+        return HibernateLocalize.hibernateFacetTypePresentableName();
     }
 
     @Nonnull

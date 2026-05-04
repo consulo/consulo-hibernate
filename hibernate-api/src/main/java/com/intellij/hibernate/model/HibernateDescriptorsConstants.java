@@ -1,6 +1,6 @@
 package com.intellij.hibernate.model;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.java.impl.util.descriptors.ConfigFileVersion;
 import com.intellij.java.impl.util.descriptors.ConfigFileMetaData;
 
@@ -17,7 +17,7 @@ public interface HibernateDescriptorsConstants {
   };
 
   ConfigFileMetaData HIBERNATE_CONFIGURATION_META_DATA =
-    new ConfigFileMetaData(HibernateMessages.message("deployment.descriptor.title.configuration.xml"), "hibernate.cfg.xml", "",
+    new ConfigFileMetaData(HibernateLocalize.deploymentDescriptorTitleConfigurationXml().get(), "hibernate.cfg.xml", "",
                            HIBERNATE_CONFIGURATION_VERSIONS, null, false, false, false);
 
 
@@ -27,6 +27,6 @@ public interface HibernateDescriptorsConstants {
   };
 
   ConfigFileMetaData HIBERNATE_MAPPING_META_DATA =
-    new ConfigFileMetaData(HibernateMessages.message("deployment.descriptor.title.mapping.xml"), "mapping.hbm.xml", "",
+    new ConfigFileMetaData(HibernateLocalize.deploymentDescriptorTitleMappingXml().get(), "mapping.hbm.xml", "",
                            HIBERNATE_MAPPING_VERSIONS, null, true, false, true);
 }

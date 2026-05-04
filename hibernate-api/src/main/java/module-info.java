@@ -12,6 +12,7 @@ open module hibernate.api {
     requires gnu.trove;
 
     exports com.intellij.hibernate;
+    exports com.intellij.hibernate.localize;
     exports com.intellij.hibernate.facet;
     exports com.intellij.hibernate.model;
     exports com.intellij.hibernate.model.common.mapping;

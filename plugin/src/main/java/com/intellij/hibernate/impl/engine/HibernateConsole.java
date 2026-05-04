@@ -4,7 +4,7 @@
 
 package com.intellij.hibernate.impl.engine;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.jpa.AbstractQlPersistenceModel;
 import com.intellij.jpa.util.JpaUtil;
 import com.intellij.persistence.DatabaseIcons;
@@ -86,7 +86,7 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
         final ConsoleContextProvider.ConsoleContext context =
                 new HibernateConsoleContextProvider().createConsoleContext(curFacet, curUnit, query);
         realConfiguration.setConsoleContext(context);
-        realConfiguration.setName(HibernateMessages.message("title.hql.console", context.getProvider().getDisplayName(), configuration.getName(), curFacet.getModule().getName(), curUnit.getName().getValue()));
+        realConfiguration.setName(HibernateLocalize.titleHqlConsole(context.getProvider().getDisplayName(), configuration.getName(), curFacet.getModule().getName(), curUnit.getName().getValue()).get());
 
         //final RunManagerEx runManager = RunManagerEx.getInstanceEx(project);
         //final Map<String, BeforeRunTask> steps = runManager.getBeforeRunTasks(realConfiguration);
@@ -170,9 +170,9 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
     }
     getTabularDataHandler().resetOutputTabCounter();
 
-    layoutUi.getDefaults().initTabDefaults(0, HibernateMessages.message("hqlconsole.tab.title"), null);
-    final Content input = layoutUi.createContent(ID_INPUT, wrap(myEditorField.getComponent()), HibernateMessages.message("hqlconsole.tab.title.input"), PersistenceIcons.CONSOLE_ICON, myEditorField.getComponent());
-    final Content output = layoutUi.createContent(ID_OUTPUT, wrap(consoleView.getComponent()), HibernateMessages.message("hqlconsole.tab.title.output"), PersistenceIcons.CONSOLE_OUTPUT_ICON, consoleView.getPreferredFocusableComponent());
+    layoutUi.getDefaults().initTabDefaults(0, HibernateLocalize.hqlconsoleTabTitle().get(), null);
+    final Content input = layoutUi.createContent(ID_INPUT, wrap(myEditorField.getComponent()), HibernateLocalize.hqlconsoleTabTitleInput().get(), PersistenceIcons.CONSOLE_ICON, myEditorField.getComponent());
+    final Content output = layoutUi.createContent(ID_OUTPUT, wrap(consoleView.getComponent()), HibernateLocalize.hqlconsoleTabTitleOutput().get(), PersistenceIcons.CONSOLE_OUTPUT_ICON, consoleView.getPreferredFocusableComponent());
     input.setActions(createActionGroup(), ActionPlaces.UNKNOWN, myEditorField.getComponent());
     input.setCloseable(false);
     output.setCloseable(false);
@@ -233,8 +233,8 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
 
   private DefaultActionGroup createActionGroup() {
     final DefaultActionGroup group = new DefaultActionGroup();
-    myRunAction = new AnAction(HibernateMessages.message("hqlconsole.action.execute.query"),
-                               HibernateMessages.message("hqlconsole.action.execute.query"),
+    myRunAction = new AnAction(HibernateLocalize.hqlconsoleActionExecuteQuery(),
+                               HibernateLocalize.hqlconsoleActionExecuteQuery(),
                                PlatformIconGroup.actionsExecute()) {
       public void actionPerformed(final AnActionEvent e) {
         final String query = myEditorField.getText().trim();
@@ -250,8 +250,8 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
         e.getPresentation().setEnabled(isReady() && myEditorField != null && myEditorField.getText().trim().length() > 0);
       }
     };
-    mySqlAction = new AnAction(HibernateMessages.message("hqlconsole.action.generate.sql"),
-                               HibernateMessages.message("hqlconsole.action.generate.sql"),
+    mySqlAction = new AnAction(HibernateLocalize.hqlconsoleActionGenerateSql(),
+                               HibernateLocalize.hqlconsoleActionGenerateSql(),
                                Image.empty(16)) {
       public void actionPerformed(final AnActionEvent e) {
         final String query = myEditorField.getText().trim();
@@ -266,8 +266,8 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
         e.getPresentation().setEnabled(isReady() && myEditorField != null && myEditorField.getText().trim().length() > 0);
       }
     };
-    final AnAction ddlAction = new AnAction(HibernateMessages.message("hqlconsole.action.generate.ddl"),
-                               HibernateMessages.message("hqlconsole.action.generate.ddl"), DatabaseIcons.DATASOURCE_ICON) {
+    final AnAction ddlAction = new AnAction(HibernateLocalize.hqlconsoleActionGenerateDdl(),
+                               HibernateLocalize.hqlconsoleActionGenerateDdl(), DatabaseIcons.DATASOURCE_ICON) {
       public void actionPerformed(final AnActionEvent e) {
         runTask(new Runnable() {
           public void run() {

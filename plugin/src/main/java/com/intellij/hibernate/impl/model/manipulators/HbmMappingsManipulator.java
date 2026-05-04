@@ -4,7 +4,7 @@
 
 package com.intellij.hibernate.impl.model.manipulators;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.model.xml.mapping.*;
 import com.intellij.hibernate.view.HibernateIcons;
 import com.intellij.jpa.model.manipulators.MappingsManipulatorBase;
@@ -34,18 +34,18 @@ public class HbmMappingsManipulator extends MappingsManipulatorBase<HbmHibernate
 
   public List<PersistenceAction> getCreateActions() {
     return Arrays.<PersistenceAction>asList(
-      new MyObjectAction<HbmClass>(this, HibernateMessages.message("action.name.create.hibernate.class"),
-                               HibernateIcons.CLASS_ICON, HbmClass.class, null, HibernateMessages.message("type.hibernate.class")),
-      new MyObjectAction<HbmSubclass>(this, HibernateMessages.message("action.name.create.hibernate.subclass"),
-                               HibernateIcons.CLASS_ICON, HbmSubclass.class, null, HibernateMessages.message("type.hibernate.subclass")),
-      new MyObjectAction<HbmJoinedSubclass>(this, HibernateMessages.message("action.name.create.hibernate.joined.subclass"),
-                               HibernateIcons.CLASS_ICON, HbmJoinedSubclass.class, null, HibernateMessages.message("type.hibernate.joined.subclass")),
-      new MyObjectAction<HbmUnionSubclass>(this, HibernateMessages.message("action.name.create.hibernate.union.subclass"),
-                               HibernateIcons.CLASS_ICON, HbmUnionSubclass.class, null, HibernateMessages.message("type.hibernate.union.subclass"))
-      //new MyObjectAction<HbmComponent>(this, HibernateMessages.message("action.name.create.hibernate.component"),
-      //                         HibernateIcons.CLASS_ICON, HbmComponent.class, null, HibernateMessages.message("type.hibernate.component"))
-      //new MyObjectAction<HbmJoin>(this, HibernateMessages.message("action.name.create.hibernate.join"),
-      //                         HibernateIcons.CLASS_ICON, HbmJoin.class, null, HibernateMessages.message("type.hibernate.join"))
+      new MyObjectAction<HbmClass>(this, HibernateLocalize.actionNameCreateHibernateClass().get(),
+                               HibernateIcons.CLASS_ICON, HbmClass.class, null, HibernateLocalize.typeHibernateClass().get()),
+      new MyObjectAction<HbmSubclass>(this, HibernateLocalize.actionNameCreateHibernateSubclass().get(),
+                               HibernateIcons.CLASS_ICON, HbmSubclass.class, null, HibernateLocalize.typeHibernateSubclass().get()),
+      new MyObjectAction<HbmJoinedSubclass>(this, HibernateLocalize.actionNameCreateHibernateJoinedSubclass().get(),
+                               HibernateIcons.CLASS_ICON, HbmJoinedSubclass.class, null, HibernateLocalize.typeHibernateJoinedSubclass().get()),
+      new MyObjectAction<HbmUnionSubclass>(this, HibernateLocalize.actionNameCreateHibernateUnionSubclass().get(),
+                               HibernateIcons.CLASS_ICON, HbmUnionSubclass.class, null, HibernateLocalize.typeHibernateUnionSubclass().get())
+      //new MyObjectAction<HbmComponent>(this, HibernateLocalize.actionNameCreateHibernateComponent().get(),
+      //                         HibernateIcons.CLASS_ICON, HbmComponent.class, null, HibernateLocalize.typeHibernateComponent().get())
+      //new MyObjectAction<HbmJoin>(this, HibernateLocalize.actionNameCreateHibernateJoin().get(),
+      //                         HibernateIcons.CLASS_ICON, HbmJoin.class, null, HibernateLocalize.typeHibernateJoin().get())
     );
   }
 

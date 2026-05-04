@@ -1,7 +1,7 @@
 package com.intellij.hibernate.model.converters;
 
 import com.intellij.hibernate.model.enums.CascadeType;
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import consulo.language.psi.PsiElement;
 import consulo.xml.dom.ConvertContext;
 import consulo.xml.dom.ElementPresentationManager;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import consulo.localize.LocalizeValue;
-import java.text.MessageFormat;
 
 /**
  * @author Gregory.Shrago
@@ -50,6 +49,6 @@ public class CascadeTypeListConverter extends DelimitedListConverter<CascadeType
   }
 
   protected LocalizeValue buildUnresolvedMessageInner(final String value) {
-    return LocalizeValue.localizeTODO(MessageFormat.format(HibernateMessages.message("cannot.resolve.cascade.type.0"), value));
+    return HibernateLocalize.cannotResolveCascadeType0(value);
   }
 }

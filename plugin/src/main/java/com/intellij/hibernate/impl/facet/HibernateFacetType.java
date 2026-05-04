@@ -1,6 +1,6 @@
 package com.intellij.hibernate.impl.facet;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.hibernate.facet.HibernateFacetConfiguration;
 import com.intellij.hibernate.view.HibernateIcons;
@@ -22,7 +22,7 @@ public class HibernateFacetType {
   private final String myName;
 
   public HibernateFacetType() {
-    myName = HibernateMessages.message("hibernate.facet.type.presentable.name");
+    myName = HibernateLocalize.hibernateFacetTypePresentableName().get();
   }
 
   public String getDefaultFacetName() {

@@ -4,7 +4,7 @@
 
 package com.intellij.hibernate.model.enums;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import static com.intellij.jpa.model.annotations.mapping.AttributeBaseImpl.*;
 
 import jakarta.annotation.Nonnull;
@@ -36,37 +36,37 @@ public class HibernateAttributeType extends AttributeType{
   public static JamMemberMeta<PsiMember, ? extends JamAttributeBase> COLLECTION_OF_ELEMENTS_ATTR_META = null;
   public static JamMemberMeta<PsiMember, ? extends JamAttributeBase> COLLECTION_OF_EMBEDDED_ELEMENTS_ATTR_META = null;
 
-  public static final HibernateAttributeType ID = new HibernateAttributeType(HbmId.class, HibernateMessages.message("type.hibernate.attr.id"), ID_ATTR_META);
-  public static final HibernateAttributeType COMPOSITE_ID = new HibernateAttributeType(HbmCompositeId.class, HibernateMessages.message("type.hibernate.attr.composite.id"), EMBEDDED_ID_ATTR_META);
-  public static final HibernateAttributeType VERSION = new HibernateAttributeType(HbmVersion.class, HibernateMessages.message("type.hibernate.attr.version"), VERSION_ATTR_META);
-  public static final HibernateAttributeType TIMESTAMP = new HibernateAttributeType(HbmTimestamp.class, HibernateMessages.message("type.hibernate.attr.timestamp"), BASIC_ATTR_META);
-  public static final HibernateAttributeType PROPERTY = new HibernateAttributeType(HbmProperty.class, HibernateMessages.message("type.hibernate.attr.property"), BASIC_ATTR_META) {
+  public static final HibernateAttributeType ID = new HibernateAttributeType(HbmId.class, HibernateLocalize.typeHibernateAttrId().get(), ID_ATTR_META);
+  public static final HibernateAttributeType COMPOSITE_ID = new HibernateAttributeType(HbmCompositeId.class, HibernateLocalize.typeHibernateAttrCompositeId().get(), EMBEDDED_ID_ATTR_META);
+  public static final HibernateAttributeType VERSION = new HibernateAttributeType(HbmVersion.class, HibernateLocalize.typeHibernateAttrVersion().get(), VERSION_ATTR_META);
+  public static final HibernateAttributeType TIMESTAMP = new HibernateAttributeType(HbmTimestamp.class, HibernateLocalize.typeHibernateAttrTimestamp().get(), BASIC_ATTR_META);
+  public static final HibernateAttributeType PROPERTY = new HibernateAttributeType(HbmProperty.class, HibernateLocalize.typeHibernateAttrProperty().get(), BASIC_ATTR_META) {
     protected boolean accepts(final PersistentAttribute attribute) {
       return super.accepts(attribute) || ModelMergerUtil.getImplementation(attribute, HbmKeyProperty.class) != null;
     }
   };
 
-  public static final HibernateAttributeType ONE_TO_ONE =  new HibernateAttributeType(HbmOneToOne.class, HibernateMessages.message("type.hibernate.attr.one.to.one"), ONE_TO_ONE_ATTR_META);
-  public static final HibernateAttributeType ONE_TO_MANY = new HibernateAttributeType(HbmOneToMany.class, HibernateMessages.message("type.hibernate.attr.one.to.many"), ONE_TO_MANY_ATTR_META);
-  public static final HibernateAttributeType MANY_TO_ONE = new HibernateAttributeType(HbmManyToOne.class, HibernateMessages.message("type.hibernate.attr.many.to.one"), MANY_TO_ONE_ATTR_META) {
+  public static final HibernateAttributeType ONE_TO_ONE =  new HibernateAttributeType(HbmOneToOne.class, HibernateLocalize.typeHibernateAttrOneToOne().get(), ONE_TO_ONE_ATTR_META);
+  public static final HibernateAttributeType ONE_TO_MANY = new HibernateAttributeType(HbmOneToMany.class, HibernateLocalize.typeHibernateAttrOneToMany().get(), ONE_TO_MANY_ATTR_META);
+  public static final HibernateAttributeType MANY_TO_ONE = new HibernateAttributeType(HbmManyToOne.class, HibernateLocalize.typeHibernateAttrManyToOne().get(), MANY_TO_ONE_ATTR_META) {
     protected boolean accepts(final PersistentAttribute attribute) {
       return super.accepts(attribute) || ModelMergerUtil.getImplementation(attribute, HbmKeyManyToOne.class) != null;
     }
   };
-  public static final HibernateAttributeType MANY_TO_MANY = new HibernateAttributeType(HbmManyToMany.class, HibernateMessages.message("type.hibernate.attr.many.to.many"), MANY_TO_MANY_ATTR_META);
+  public static final HibernateAttributeType MANY_TO_MANY = new HibernateAttributeType(HbmManyToMany.class, HibernateLocalize.typeHibernateAttrManyToMany().get(), MANY_TO_MANY_ATTR_META);
 
-  public static final HibernateAttributeType ELEMENTS  = new HibernateAttributeType(HbmElement.class, HibernateMessages.message("type.hibernate.attr.elements"), BASIC_COLLECTION_ATTR_META, COLLECTION_OF_ELEMENTS_ATTR_META);
-  public static final HibernateAttributeType COMPOSITE_ELEMENTS = new HibernateAttributeType(HbmCompositeElement.class, HibernateMessages.message("type.hibernate.attr.composite.elements"), EMBEDDED_COLLECTION_ATTR_META, COLLECTION_OF_EMBEDDED_ELEMENTS_ATTR_META);
-  public static final HibernateAttributeType COLLECTION_OF_ELEMENTS = new HibernateAttributeType(CollectionOfElements.class, HibernateMessages.message("type.hibernate.attr.collection.of.elements"), COLLECTION_OF_ELEMENTS_ATTR_META, COLLECTION_OF_EMBEDDED_ELEMENTS_ATTR_META);
+  public static final HibernateAttributeType ELEMENTS  = new HibernateAttributeType(HbmElement.class, HibernateLocalize.typeHibernateAttrElements().get(), BASIC_COLLECTION_ATTR_META, COLLECTION_OF_ELEMENTS_ATTR_META);
+  public static final HibernateAttributeType COMPOSITE_ELEMENTS = new HibernateAttributeType(HbmCompositeElement.class, HibernateLocalize.typeHibernateAttrCompositeElements().get(), EMBEDDED_COLLECTION_ATTR_META, COLLECTION_OF_EMBEDDED_ELEMENTS_ATTR_META);
+  public static final HibernateAttributeType COLLECTION_OF_ELEMENTS = new HibernateAttributeType(CollectionOfElements.class, HibernateLocalize.typeHibernateAttrCollectionOfElements().get(), COLLECTION_OF_ELEMENTS_ATTR_META, COLLECTION_OF_EMBEDDED_ELEMENTS_ATTR_META);
 
-  public static final HibernateAttributeType COMPONENT = new HibernateAttributeType(HbmComponent.class, HibernateMessages.message("type.hibernate.attr.component"), EMBEDDED_ATTR_META) {
+  public static final HibernateAttributeType COMPONENT = new HibernateAttributeType(HbmComponent.class, HibernateLocalize.typeHibernateAttrComponent().get(), EMBEDDED_ATTR_META) {
     protected boolean accepts(final PersistentAttribute attribute) {
       return super.accepts(attribute) || ModelMergerUtil.getImplementation(attribute, HbmNestedCompositeElement.class) != null;
     }
   };
 
-  public static final HibernateAttributeType ANY = new HibernateAttributeType(HbmAny.class, HibernateMessages.message("type.hibernate.attr.any"));
-  public static final HibernateAttributeType DYNAMIC_COMPONENT = new HibernateAttributeType(HbmDynamicComponent.class, HibernateMessages.message("type.hibernate.attr.dynamic.component"));
+  public static final HibernateAttributeType ANY = new HibernateAttributeType(HbmAny.class, HibernateLocalize.typeHibernateAttrAny().get());
+  public static final HibernateAttributeType DYNAMIC_COMPONENT = new HibernateAttributeType(HbmDynamicComponent.class, HibernateLocalize.typeHibernateAttrDynamicComponent().get());
 
   public HibernateAttributeType(final Class attributeClass, final String typeName, final JamMemberMeta<PsiMember, ? extends JamAttributeBase>... jamMeta) {
     super(attributeClass, typeName, jamMeta);

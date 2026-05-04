@@ -1,0 +1,163 @@
+hibernate.facet.type.presentable.name:
+    text: Hibernate
+framework.title.hibernate:
+    text: _Hibernate
+deployment.descriptor.title.hibernate.configuration.xml:
+    text: Hibernate Configuration
+deployment.descriptor.title.mapping.xml:
+    text: Hibernate Mapping
+deployment.descriptor.title.configuration.xml:
+    text: Hibernate Configuration
+session.factory.fake.file.type:
+    text: Hibernate Session Factory
+model.object.type.attribute:
+    text: Attribute
+inspection.name.hibernate.configuration:
+    text: Hibernate XML configuration problems
+inspection.name.hibernate.configuration.facet:
+    text: Hibernate configuration XML is not added to facet problem
+inspection.name.hibernate.mapping:
+    text: Hibernate XML mappings problems
+inspection.name.hibernate.datasource.mapping:
+    text: Hibernate DB-related XML mappings problems
+inspection.group.name.hibernate.issues:
+    text: Hibernate Issues
+config.libraries.display.name:
+    text: Hibernate Libraries
+tab.title.hibernate.general.settings:
+    text: Hibernate General Settings
+group.title.datasources.mapping:
+    text: DataSources Mapping
+group.title.descriptors:
+    text: Descriptors
+hibernate.quickfix.family:
+    text: Hibernate Model Quick Fix
+warning.cfg.xml.not.in.any.facet:
+    text: File is not configured as Hibernate facet descriptor
+name.fix.add.to.facet.configuration:
+    text: Add to Hibernate facet configuration
+name.fix.create.facet.and.add.to.facet.configuration:
+    text: Create Hibernate facet and add file to its configuration
+popup.title.choose.module.and.facet:
+    text: Choose Module/Facet
+cannot.resolve.cascade.type.0:
+    text: Cannot resolve cascade type ''{0}''
+cannot.resolve.parameter.value.0:
+    text: Cannot resolve parameter value ''{0}''
+cannot.resolve.parameter.name.0:
+    text: Cannot resolve parameter name ''{0}''
+cannot.resolve.file.0:
+    text: Cannot resolve file ''{0}''
+message.0.should.not.be.specified.for.nested.1:
+    text: "''{0}'' should not be specified for nested ''{1}''"
+message.0.should.be.sublclass.of.1:
+    text: "''{0}'' should be a subclass of ''{1}''"
+action.name.create.session.factory:
+    text: Create Session Factory
+action.name.create.mapping:
+    text: Create Hibernate Mappings
+title.cannot.create.session.factory:
+    text: Cannot create session Factory
+progress.creating.session.factory:
+    text: Creating persistence unit {0}.{1}
+action.name.create.hibernate.class:
+    text: Create Hibernate Class
+action.name.create.hibernate.subclass:
+    text: Create Hibernate Subclass
+action.name.create.hibernate.joined.subclass:
+    text: Create Hibernate Joined Subclass
+action.name.create.hibernate.union.subclass:
+    text: Create Hibernate Union Subclass
+action.name.create.hibernate.component:
+    text: Create Hibernate Component
+type.hibernate.session.factory:
+    text: Session Factory
+type.hibernate.mappings:
+    text: Hibernate Mappings
+type.hibernate.class:
+    text: Hibernate Class
+type.hibernate.subclass:
+    text: Hibernate Subclass
+type.hibernate.joined.subclass:
+    text: Hibernate Joined Subclass
+type.hibernate.union.subclass:
+    text: Hibernate Union Subclass
+type.hibernate.component:
+    text: Hibernate Component
+type.hibernate.attr.id:
+    text: Id
+type.hibernate.attr.property:
+    text: Property
+type.hibernate.attr.version:
+    text: Version
+type.hibernate.attr.timestamp:
+    text: Timestamp
+type.hibernate.attr.composite.id:
+    text: Composite Id
+type.hibernate.attr.component:
+    text: Component
+type.hibernate.attr.many.to.many:
+    text: Many To Many
+type.hibernate.attr.many.to.one:
+    text: Many To One
+type.hibernate.attr.one.to.many:
+    text: One To Many
+type.hibernate.attr.one.to.one:
+    text: One To One
+type.hibernate.attr.elements:
+    text: Elements
+type.hibernate.attr.composite.elements:
+    text: Composite Elements
+type.hibernate.attr.collection.of.elements:
+    text: Collection of Elements
+type.hibernate.attr.any:
+    text: Any
+type.hibernate.attr.dynamic.component:
+    text: Dynamic Component
+intentions.category.hibernate:
+    text: Hibernate
+intention.execute.hql.query.family:
+    text: Open HQL Console
+title.hql.console:
+    text: "{0}: {1}: {2}/{3}"
+facet.classes.are.out.of.date:
+    text: Facet class files are out of date
+recompile.confirmation.message:
+    text: |-
+        Facet class files are out of date.
+        Do you want to compile the module before continuing?
+        The refusal to do it might result in incomplete or incorrect results.
+hqlconsole.query.yields.no.results:
+    text: Query yields no results
+hqlconsole.action.execute.query:
+    text: Execute Query
+hqlconsole.action.generate.sql:
+    text: Generate SQL
+hqlconsole.action.generate.ddl:
+    text: Generate DDL
+title.choose.session.factory:
+    text: Choose Session Factory
+title.new.hibernate.cfg.xml:
+    text: Choose or Create Hibernate Config File
+hqlconsole.tab.title:
+    text: HQL Console
+hqlconsole.tab.title.input:
+    text: Input
+hqlconsole.tab.title.output:
+    text: Output
+hqlconsole.unit.not.found:
+    text: Requested Hibernate Configuration not found
+hqlconsole.context.provider.name:
+    text: Hibernate
+schema.creation.script:
+    text: Schema Creation Script
+drop.schema.script:
+    text: Drop Schema Script
+framework.configurable.generate.main.and.config:
+    text: Create default hibernate configuration and main class
+framework.configurable.import.database:
+    text: Import database schema
+persistence.validator.decription:
+    text: Hibernate Validator
+hqlconsole.context.unit:
+    text: Choose Session Factory or Persistence Unit

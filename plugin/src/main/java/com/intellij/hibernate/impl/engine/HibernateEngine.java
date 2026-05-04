@@ -4,7 +4,7 @@
 
 package com.intellij.hibernate.impl.engine;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.model.HibernateDescriptorsConstants;
 import com.intellij.hibernate.model.HibernatePropertiesConstants;
 import com.intellij.hibernate.model.xml.config.HibernateConfiguration;
@@ -290,7 +290,7 @@ public class HibernateEngine implements Disposable {
       if (myState == State.INIT) {
         final Pair<File, String> pair = getHibernateConfigAndFactoryClass();
         if (pair == null) {
-          throw new IllegalStateException(HibernateMessages.message("hqlconsole.unit.not.found"));
+          throw new IllegalStateException(HibernateLocalize.hqlconsoleUnitNotFound().get());
         }
         final String cfgClass = myRunContext.getRunConfiguration() != null ? myRunContext.getRunConfiguration().USER_CFG_CLASS : null;
         sendCommand("initUserConfigurator "+ (StringUtil.isEmpty(cfgClass) ? "" : cfgClass));

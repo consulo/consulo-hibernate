@@ -21,7 +21,6 @@ open module javaee.persistence.api {
     requires gnu.trove;
 
     exports com.intellij.javaee;
-    exports com.intellij.javaee.inspection;
     exports com.intellij.javaee.model;
     exports com.intellij.javaee.model.common;
     exports com.intellij.javaee.model.common.persistence;

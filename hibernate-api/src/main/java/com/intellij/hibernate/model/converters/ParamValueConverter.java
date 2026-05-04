@@ -5,7 +5,7 @@ import jakarta.annotation.Nonnull;
 import consulo.language.psi.EmptyResolveMessageProvider;
 import consulo.localize.LocalizeValue;
 import com.intellij.hibernate.HibernateManager;
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import consulo.xml.dom.Converter;
 import consulo.xml.dom.WrappingConverter;
 import consulo.xml.dom.GenericDomValue;
@@ -23,7 +23,7 @@ public class ParamValueConverter extends WrappingConverter implements EmptyResol
 
   @Nonnull
   public LocalizeValue buildUnresolvedMessage(String ref) {
-    return LocalizeValue.localizeTODO(HibernateMessages.message("cannot.resolve.parameter.value.0"));
+    return HibernateLocalize.cannotResolveParameterValue0(ref);
   }
 
 }

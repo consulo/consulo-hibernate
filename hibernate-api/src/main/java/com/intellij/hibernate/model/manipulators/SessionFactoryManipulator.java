@@ -7,7 +7,7 @@ package com.intellij.hibernate.model.manipulators;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.model.HibernateDescriptorsConstants;
 import com.intellij.hibernate.model.HibernatePropertiesConstants;
 import com.intellij.hibernate.model.xml.config.Property;
@@ -44,8 +44,8 @@ public class SessionFactoryManipulator extends AbstractPersistenceManipulator<Se
   }
 
   public static List<PersistenceAction> getCreateActionsDefault(final PersistenceUnitManipulator unitManipulator, final ArrayList<PersistenceAction> result) {
-    result.add(new JpaUnitManipulator.MyMappingsAction(unitManipulator, HibernateMessages.message("action.name.create.mapping"),
-                                                       HibernateMessages.message("type.hibernate.mappings"),
+    result.add(new JpaUnitManipulator.MyMappingsAction(unitManipulator, HibernateLocalize.actionNameCreateMapping().get(),
+                                                       HibernateLocalize.typeHibernateMappings().get(),
                                                        HibernateDescriptorsConstants.HIBERNATE_MAPPING_META_DATA.getDefaultVersion().getTemplateName(),
                                                        HbmHibernateMapping.class));
     return JpaUnitManipulator.getCreateActionsDefault(unitManipulator, result);

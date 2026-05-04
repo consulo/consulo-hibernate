@@ -4,10 +4,11 @@
 
 package com.intellij.hibernate.impl.intentions;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.impl.engine.HibernateConsole;
 import consulo.codeEditor.Editor;
 import consulo.language.editor.intention.IntentionMetaData;
+import consulo.localize.LocalizeValue;
 import consulo.project.Project;
 import com.intellij.persistence.facet.PersistenceFacetBase;
 import com.intellij.persistence.facet.PersistenceFacetConfiguration;
@@ -23,8 +24,9 @@ import consulo.annotation.component.ExtensionImpl;
 public class OpenHqlConsoleIntentionAction extends QueryIntentionActionBase {
 
   @Nonnull
-  public String getFamilyName() {
-    return HibernateMessages.message("intention.execute.hql.query.family");
+  @Override
+  protected LocalizeValue getFamilyName() {
+    return HibernateLocalize.intentionExecuteHqlQueryFamily();
   }
 
   protected void invokeInner(final Project project, final Editor editor, final PersistenceFacetBase<PersistenceFacetConfiguration, PersistencePackage> curFacet,

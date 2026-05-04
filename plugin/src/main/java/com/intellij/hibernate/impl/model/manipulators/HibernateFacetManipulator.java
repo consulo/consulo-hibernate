@@ -4,7 +4,7 @@
 
 package com.intellij.hibernate.impl.model.manipulators;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.hibernate.model.HibernateDescriptorsConstants;
 import com.intellij.hibernate.model.xml.config.HibernateConfiguration;
@@ -28,8 +28,7 @@ public class HibernateFacetManipulator extends AbstractPersistenceManipulator<Hi
   }
 
   public List<PersistenceAction> getCreateActions() {
-    return Arrays.<PersistenceAction>asList(new AbstractPersistenceAction<HibernateFacetManipulator>(this, HibernateMessages.message(
-      "action.name.create.session.factory"), HibernateMessages.message("type.hibernate.session.factory"), HibernateIcons.SESSION_FACTORY_ICON) {
+    return Arrays.<PersistenceAction>asList(new AbstractPersistenceAction<HibernateFacetManipulator>(this, HibernateLocalize.actionNameCreateSessionFactory().get(), HibernateLocalize.typeHibernateSessionFactory().get(), HibernateIcons.SESSION_FACTORY_ICON) {
       private HibernateConfiguration myRoot;
 
       public int getGroupId() {
@@ -39,7 +38,7 @@ public class HibernateFacetManipulator extends AbstractPersistenceManipulator<Hi
       public boolean preInvoke(final UserResponse response) {
         final HibernateFacet facet = getManipulatorTarget();
         myRoot = JpaUtil.getOrChooseElement(facet.getModule(), facet.getDescriptorsContainer(), HibernateDescriptorsConstants.HIBERNATE_CONFIGURATION_META_DATA, HibernateConfiguration.class,
-                                            HibernateMessages.message("title.new.hibernate.cfg.xml"), true);
+                                            HibernateLocalize.titleNewHibernateCfgXml().get(), true);
         return myRoot != null;
       }
 

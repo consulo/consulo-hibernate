@@ -4,7 +4,7 @@ import consulo.process.ExecutionException;
 import consulo.execution.ui.console.TextConsoleBuilder;
 import consulo.process.event.ProcessListener;
 import consulo.execution.runner.ExecutionEnvironment;
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.view.HibernateIcons;
 import consulo.ui.ex.action.AnAction;
 import consulo.language.editor.PlatformDataKeys;
@@ -57,7 +57,7 @@ public class HibernateConsoleContextProvider implements ConsoleContextProvider {
   }
 
   public String getDisplayName() {
-    return HibernateMessages.message("hqlconsole.context.provider.name");
+    return HibernateLocalize.hqlconsoleContextProviderName().get();
   }
 
   public Image getIcon() {
@@ -130,7 +130,7 @@ public class HibernateConsoleContextProvider implements ConsoleContextProvider {
     builder.addOkAction();
     builder.addCancelAction();
     builder.setCenterPanel(panel);
-    builder.setTitle(HibernateMessages.message("hqlconsole.context.unit"));
+    builder.setTitle(HibernateLocalize.hqlconsoleContextUnit().get());
     if (builder.show() == DialogWrapper.OK_EXIT_CODE) {
       hibernateContext.setUnitId(((HibernateConsoleContextProvider.UnitInfo)comboBox.getSelectedItem()).getId());
       return true;
@@ -184,7 +184,7 @@ public class HibernateConsoleContextProvider implements ConsoleContextProvider {
 
       final UnitInfo pair = myUnitId == null? null : discoverFacetUnit(project, myUnitId);
       if (pair == null) {
-        throw new ExecutionException(HibernateMessages.message("hqlconsole.unit.not.found"));
+        throw new ExecutionException(HibernateLocalize.hqlconsoleUnitNotFound().get());
       }
 
       return new HibernateRunContext(pair.facet, pair.unit, myInitialText, (ConsoleRunConfiguration)env.getRunProfile(), myUnitId);
@@ -263,7 +263,7 @@ public class HibernateConsoleContextProvider implements ConsoleContextProvider {
 
     public RunContext checkRunContext() throws ExecutionException {
       if (getPersistenceUnit() == null) {
-        throw new ExecutionException(HibernateMessages.message("hqlconsole.unit.not.found"));
+        throw new ExecutionException(HibernateLocalize.hqlconsoleUnitNotFound().get());
       }
       return this;
     }

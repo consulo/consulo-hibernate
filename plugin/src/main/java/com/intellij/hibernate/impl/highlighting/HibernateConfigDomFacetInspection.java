@@ -19,7 +19,7 @@ package com.intellij.hibernate.impl.highlighting;
 import consulo.language.editor.rawHighlight.HighlightDisplayLevel;
 import consulo.language.editor.DaemonCodeAnalyzer;
 import consulo.language.editor.inspection.IntentionAndQuickFixAction;
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.hibernate.impl.facet.HibernateFacetType;
 import com.intellij.hibernate.model.HibernateConstants;
@@ -51,6 +51,7 @@ import org.jetbrains.annotations.NonNls;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
+import consulo.annotation.component.ExtensionImpl;
 import consulo.localize.LocalizeValue;
 import consulo.dataContext.DataManager;
 import consulo.ui.image.Image;
@@ -61,6 +62,7 @@ import java.util.List;
 /**
  * @author Gregory.Shrago
  */
+@ExtensionImpl
 public class HibernateConfigDomFacetInspection extends BasicDomElementsInspection<HibernateConfiguration, Void> {
 
   public HibernateConfigDomFacetInspection() {
@@ -69,12 +71,12 @@ public class HibernateConfigDomFacetInspection extends BasicDomElementsInspectio
 
   @Nonnull
   public LocalizeValue getGroupDisplayName() {
-    return LocalizeValue.localizeTODO(HibernateConstants.HIBERNATE_INSPECTIONS_GROUP);
+    return HibernateLocalize.inspectionGroupNameHibernateIssues();
   }
 
   @Nonnull
   public LocalizeValue getDisplayName() {
-    return LocalizeValue.localizeTODO(HibernateMessages.message("inspection.name.hibernate.configuration.facet"));
+    return HibernateLocalize.inspectionNameHibernateConfigurationFacet();
   }
 
   @Nonnull
@@ -123,10 +125,10 @@ public class HibernateConfigDomFacetInspection extends BasicDomElementsInspectio
       }
     }
     if (facets.isEmpty()) {
-      holder.createProblem(element, HighlightSeverity.WARNING, HibernateMessages.message("warning.cfg.xml.not.in.any.facet"), new AddFacetFix(modulesToLookAt, facets));
+      holder.createProblem(element, HighlightSeverity.WARNING, HibernateLocalize.warningCfgXmlNotInAnyFacet().get(), new AddFacetFix(modulesToLookAt, facets));
     }
     else if (!found) {
-      holder.createProblem(element, HighlightSeverity.WARNING, HibernateMessages.message("warning.cfg.xml.not.in.any.facet"), new AddToFacetConfigurationFix(modulesToLookAt, facets));
+      holder.createProblem(element, HighlightSeverity.WARNING, HibernateLocalize.warningCfgXmlNotInAnyFacet().get(), new AddToFacetConfigurationFix(modulesToLookAt, facets));
     }
   }
 
@@ -141,12 +143,12 @@ public class HibernateConfigDomFacetInspection extends BasicDomElementsInspectio
 
     @Nonnull
     public LocalizeValue getName() {
-      return LocalizeValue.localizeTODO(HibernateMessages.message("name.fix.add.to.facet.configuration"));
+      return HibernateLocalize.nameFixAddToFacetConfiguration();
     }
 
     @Nonnull
     public String getFamilyName() {
-      return HibernateMessages.message("hibernate.quickfix.family");
+      return HibernateLocalize.hibernateQuickfixFamily().get();
     }
 
     @Override
@@ -175,7 +177,7 @@ public class HibernateConfigDomFacetInspection extends BasicDomElementsInspectio
             return Comparing.compare(getItemName(o1), getItemName(o2));
           }
         });
-        final ListPopup popup = JBPopupFactory.getInstance().createListPopup(new BaseListPopupStep<Object>(HibernateMessages.message("popup.title.choose.module.and.facet"), list) {
+        final ListPopup popup = JBPopupFactory.getInstance().createListPopup(new BaseListPopupStep<Object>(HibernateLocalize.popupTitleChooseModuleAndFacet().get(), list) {
           @Nonnull
           public String getTextFor(final Object o) {
             return getItemName(o);
@@ -225,7 +227,7 @@ public class HibernateConfigDomFacetInspection extends BasicDomElementsInspectio
 
     @Nonnull
     public LocalizeValue getName() {
-      return LocalizeValue.localizeTODO(HibernateMessages.message("name.fix.create.facet.and.add.to.facet.configuration"));
+      return HibernateLocalize.nameFixCreateFacetAndAddToFacetConfiguration();
     }
   }
 

@@ -4,7 +4,7 @@
 
 package com.intellij.hibernate.impl.highlighting;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.model.xml.HibernateMappingVisitor;
 import com.intellij.hibernate.model.xml.mapping.HbmClassBase;
 import com.intellij.hibernate.model.xml.mapping.HbmJoinedSubclass;
@@ -29,8 +29,8 @@ public class HibernateMappingHighlightingVisitor extends HibernateMappingVisitor
     if (o.getParent() instanceof HbmClassBase) {
       checkClassExtends(o, ((HbmClassBase)o.getParent()).getClazz());
       if (DomUtil.hasXml(extendsValue)) {
-        myAnnotator.createProblem(extendsValue, HibernateMessages.message("message.0.should.not.be.specified.for.nested.1", extendsValue.getXmlElementName(),
-                                                                          o.getXmlElementName())); // TODO: TypeNameManager.getTypeName was removed in Consulo 3
+        myAnnotator.createProblem(extendsValue, HibernateLocalize.message0ShouldNotBeSpecifiedForNested1(extendsValue.getXmlElementName(),
+                                                                          o.getXmlElementName()).get()); // TODO: TypeNameManager.getTypeName was removed in Consulo 3
       }
     }
     else {
@@ -42,8 +42,8 @@ public class HibernateMappingHighlightingVisitor extends HibernateMappingVisitor
     final PsiClass psiSubclass = subclass.getClazz().getValue();
     final PsiClass psiSuperclass = superclass.getValue();
     if (psiSubclass != null && psiSuperclass != null && !psiSubclass.isInheritor(psiSuperclass, true)) {
-      myAnnotator.createProblem(subclass.getClazz(), HibernateMessages.message("message.0.should.be.sublclass.of.1", psiSubclass.getQualifiedName(),
-                                                                        psiSuperclass.getQualifiedName()));
+      myAnnotator.createProblem(subclass.getClazz(), HibernateLocalize.message0ShouldBeSublclassOf1(psiSubclass.getQualifiedName(),
+                                                                        psiSuperclass.getQualifiedName()).get());
     }
   }
 

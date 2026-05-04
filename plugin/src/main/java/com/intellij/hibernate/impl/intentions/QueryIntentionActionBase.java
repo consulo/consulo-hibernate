@@ -5,7 +5,7 @@
 package com.intellij.hibernate.impl.intentions;
 
 import consulo.language.editor.intention.IntentionAction;
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.impl.engine.HibernateEngine;
 import com.intellij.hibernate.model.xml.mapping.HbmSqlQuery;
 import com.intellij.jam.JamMessages;
@@ -59,11 +59,12 @@ import java.util.List;
 public abstract class QueryIntentionActionBase implements IntentionAction {
   @Nonnull
   public LocalizeValue getText() {
-    return LocalizeValue.localizeTODO(getFamilyName());
+    return getFamilyName();
   }
 
-  protected String getFamilyName() {
-    return HibernateMessages.message("hibernate.quickfix.family");
+  @Nonnull
+  protected LocalizeValue getFamilyName() {
+    return HibernateLocalize.hibernateQuickfixFamily();
   }
 
   public boolean isAvailable(@Nonnull final Project project, final Editor editor, final PsiFile file) {
@@ -152,7 +153,7 @@ public abstract class QueryIntentionActionBase implements IntentionAction {
         }
       });
       JBPopupFactory.getInstance().createPopupChooserBuilder(pairs).
-        setTitle(HibernateMessages.message("title.choose.session.factory")).
+        setTitle(HibernateLocalize.titleChooseSessionFactory().get()).
         setRenderer(list.getCellRenderer()).
         setItemChosenCallback(new java.util.function.Consumer<Pair<PersistenceFacetBase<PersistenceFacetConfiguration, PersistencePackage>, PersistencePackage>>() {
           public void accept(Pair<PersistenceFacetBase<PersistenceFacetConfiguration, PersistencePackage>, PersistencePackage> pair) {

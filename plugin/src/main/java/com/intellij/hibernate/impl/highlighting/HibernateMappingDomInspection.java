@@ -6,11 +6,12 @@ package com.intellij.hibernate.impl.highlighting;
 
 import jakarta.annotation.Nonnull;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.model.HibernateConstants;
 import consulo.localize.LocalizeValue;
 import com.intellij.hibernate.model.xml.mapping.HbmHibernateMapping;
 import com.intellij.javaee.model.JavaeePersistenceORMResolveConverters;
+import consulo.annotation.component.ExtensionImpl;
 import consulo.xml.dom.Converter;
 import consulo.xml.dom.DomElement;
 import consulo.xml.dom.GenericDomValue;
@@ -23,6 +24,7 @@ import org.jetbrains.annotations.NonNls;
 /**
  * @author Gregory.Shrago
  */
+@ExtensionImpl
 public class HibernateMappingDomInspection extends BasicDomElementsInspection<HbmHibernateMapping, Void> {
 
   public HibernateMappingDomInspection() {
@@ -31,12 +33,12 @@ public class HibernateMappingDomInspection extends BasicDomElementsInspection<Hb
 
   @Nonnull
   public LocalizeValue getGroupDisplayName() {
-    return LocalizeValue.localizeTODO(HibernateConstants.HIBERNATE_INSPECTIONS_GROUP);
+    return HibernateLocalize.inspectionGroupNameHibernateIssues();
   }
 
   @Nonnull
   public LocalizeValue getDisplayName() {
-    return LocalizeValue.localizeTODO(HibernateMessages.message("inspection.name.hibernate.mapping"));
+    return HibernateLocalize.inspectionNameHibernateMapping();
   }
 
   @Nonnull

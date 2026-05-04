@@ -4,7 +4,7 @@
 
 package com.intellij.hibernate.impl.facet;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.hibernate.model.HibernateDescriptorsConstants;
 import consulo.fileTemplate.FileTemplate;
@@ -34,7 +34,7 @@ public class HibernateFrameworkSupportProvider {
   private static final Logger LOG = Logger.getInstance("com.intellij.hibernate.facet.HibernateFrameworkSupportProvider");
 
   public String getTitle() {
-    return HibernateMessages.message("framework.title.hibernate");
+    return HibernateLocalize.frameworkTitleHibernate().get();
   }
 
   /**

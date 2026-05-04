@@ -33,9 +33,17 @@
 				<extensions>true</extensions>
 				<executions>
 					<execution>
+						<id>icons</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>generate-icon</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>localize</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate-localize</goal>
 						</goals>
 					</execution>
 				</executions>

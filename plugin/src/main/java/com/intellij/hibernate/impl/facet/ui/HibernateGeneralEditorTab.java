@@ -1,6 +1,6 @@
 package com.intellij.hibernate.impl.facet.ui;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.hibernate.facet.HibernateFacetConfiguration;
 import com.intellij.hibernate.model.HibernateDescriptorsConstants;
@@ -61,7 +61,7 @@ public class HibernateGeneralEditorTab {
   }
 
   public String getDisplayName() {
-    return HibernateMessages.message("tab.title.hibernate.general.settings");
+    return HibernateLocalize.tabTitleHibernateGeneralSettings().get();
   }
 
   public JComponent createComponent() {

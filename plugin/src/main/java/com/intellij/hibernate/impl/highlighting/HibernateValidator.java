@@ -1,6 +1,6 @@
 package com.intellij.hibernate.impl.highlighting;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.facet.HibernateFacet;
 import com.intellij.jpa.highlighting.JpaValidatorBase;
 import com.intellij.persistence.facet.PersistenceFacetBase;
@@ -15,7 +15,7 @@ import consulo.annotation.component.ExtensionImpl;
 public class HibernateValidator extends JpaValidatorBase {
 
   public HibernateValidator() {
-    super(HibernateMessages.message("persistence.validator.decription"));
+    super(HibernateLocalize.persistenceValidatorDecription().get());
   }
 
   protected boolean acceptsFacet(final PersistenceFacetBase<? extends PersistenceFacetConfiguration, ? extends PersistencePackage> facet) {

@@ -6,10 +6,11 @@ package com.intellij.hibernate.impl.highlighting;
 
 import jakarta.annotation.Nonnull;
 
-import com.intellij.hibernate.HibernateMessages;
+import com.intellij.hibernate.localize.HibernateLocalize;
 import com.intellij.hibernate.model.HibernateConstants;
 import consulo.localize.LocalizeValue;
 import com.intellij.hibernate.model.xml.config.HibernateConfiguration;
+import consulo.annotation.component.ExtensionImpl;
 import consulo.xml.dom.editor.BasicDomElementsInspection;
 import consulo.xml.dom.editor.DomElementAnnotationHolder;
 import consulo.xml.dom.editor.DomHighlightingHelper;
@@ -19,6 +20,7 @@ import org.jetbrains.annotations.NonNls;
 /**
  * @author Gregory.Shrago
  */
+@ExtensionImpl
 public class HibernateConfigDomInspection extends BasicDomElementsInspection<HibernateConfiguration, Void> {
 
   public HibernateConfigDomInspection() {
@@ -32,12 +34,12 @@ public class HibernateConfigDomInspection extends BasicDomElementsInspection<Hib
 
   @Nonnull
   public LocalizeValue getGroupDisplayName() {
-    return LocalizeValue.localizeTODO(HibernateConstants.HIBERNATE_INSPECTIONS_GROUP);
+    return HibernateLocalize.inspectionGroupNameHibernateIssues();
   }
 
   @Nonnull
   public LocalizeValue getDisplayName() {
-    return LocalizeValue.localizeTODO(HibernateMessages.message("inspection.name.hibernate.configuration"));
+    return HibernateLocalize.inspectionNameHibernateConfiguration();
   }
 
   @Nonnull

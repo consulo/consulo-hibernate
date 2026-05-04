@@ -16,8 +16,8 @@
 
 package com.intellij.hibernate.impl;
 
-import com.intellij.javaee.ResourceRegistrar;
-import com.intellij.javaee.StandardResourceProvider;
+import consulo.xml.standardResource.ResourceRegistrar;
+import consulo.xml.standardResource.StandardResourceProvider;
 import consulo.annotation.component.ExtensionImpl;
 
 /**
