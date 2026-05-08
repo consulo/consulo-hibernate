@@ -1,7 +1,7 @@
 <consulo-plugin url="https://github.com/consulo/incubating-consulo-hibernate">
   <id>com.intellij.hibernate</id>
-  <name>Hibernate Support</name>
-  <description>Hibernate Support</description>
+  <name>Hibernate</name>
+  <description></description>
   <category>Web/JavaEE Technologies</category>
   <version>SNAPSHOT</version>
   <vendor>consulo.io</vendor>
