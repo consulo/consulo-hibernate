@@ -52,12 +52,12 @@
                         <dependency>com.intellij.xml</dependency>
                         <dependency>com.intellij.properties</dependency>
                         <dependency>consulo.java</dependency>
-                        <dependency>consulo.javaee</dependency>
                         <dependency>consulo.database</dependency>
                         <dependency>com.intellij.spring</dependency>
                         <dependency>org.jetbrains.plugins.yaml</dependency>
                         <dependency>consulo.json</dependency>
                         <dependency>consulo.sql</dependency>
+                        <dependency>consulo.jakarta.persistence</dependency>
                     </dependencies>
                     <packaging>
                         <skip>${dev.mode}</skip>
@@ -96,13 +96,21 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>javaee-persistence-api</artifactId>
+            <artifactId>com.intellij.hibernate.spring</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>consulo.jakarta.persistence.api</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>database-api</artifactId>
+            <artifactId>consulo.jakarta.persistence.database.api</artifactId>
             <version>${project.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

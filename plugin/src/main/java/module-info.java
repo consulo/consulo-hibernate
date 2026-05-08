@@ -15,4 +15,10 @@ open module com.intellij.hibernate {
     requires consulo.util.io;
 
     requires gnu.trove;
+    requires com.intellij.xml.api;
+    requires com.intellij.xml.dom.api;
+    requires consulo.jakarta.persistence.database.api;
+    requires com.intellij.xml;
+    requires consulo.java.jam.api;
+    requires consulo.java;
 }

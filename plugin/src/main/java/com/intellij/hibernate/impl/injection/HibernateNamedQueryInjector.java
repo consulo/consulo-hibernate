@@ -3,6 +3,7 @@ package com.intellij.hibernate.impl.injection;
 import com.intellij.java.language.psi.PsiAnnotation;
 import com.intellij.java.language.psi.PsiLiteralExpression;
 import consulo.annotation.component.ExtensionImpl;
+import consulo.jakarta.persistence.InjectionUtil;
 import consulo.language.inject.MultiHostInjector;
 import consulo.language.inject.MultiHostRegistrar;
 import consulo.language.psi.PsiElement;

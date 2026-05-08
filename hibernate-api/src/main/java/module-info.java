@@ -3,13 +3,18 @@
  * @since 2026-04-10
  */
 open module hibernate.api {
-    requires transitive javaee.persistence.api;
+    requires transitive consulo.jakarta.persistence.api;
 
     requires transitive consulo.sql.language.api;
 
     requires transitive consulo.localize.api;
 
     requires gnu.trove;
+    requires com.intellij.xml.dom.api;
+    requires consulo.java.jam.api;
+    requires consulo.java;
+    requires consulo.language.editor.api;
+    requires consulo.jakarta.persistence.database.api;
 
     exports com.intellij.hibernate;
     exports com.intellij.hibernate.localize;

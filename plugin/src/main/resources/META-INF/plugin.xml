@@ -6,8 +6,9 @@
   <version>SNAPSHOT</version>
   <vendor>consulo.io</vendor>
 
-  <depends>consulo.javaee</depends>
+  <depends>consulo.jakarta.persistence</depends>
   <depends>consulo.database</depends>
+  <depends optional="true">consulo.spring</depends>
 
   <resource-bundle>resources.messages.HibernateBundle</resource-bundle>
 

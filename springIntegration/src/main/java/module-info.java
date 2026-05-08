@@ -10,4 +10,5 @@ open module com.intellij.hibernate.spring {
     requires com.intellij.spring;
 
     requires gnu.trove;
+    requires consulo.jakarta.persistence.database.api;
 }
