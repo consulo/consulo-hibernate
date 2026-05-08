@@ -1,10 +1,12 @@
-<consulo-plugin url="https://github.com/consulo/incubating-consulo-hibernate">
+<consulo-plugin url="https://github.com/consulo/consulo-hibernate">
   <id>com.intellij.hibernate</id>
   <name>Hibernate</name>
   <description></description>
-  <category>Web/JavaEE Technologies</category>
   <version>SNAPSHOT</version>
   <vendor>consulo.io</vendor>
+  <vendors>
+    <vendor>consulo.io</vendor>
+  </vendors>
 
   <depends>consulo.jakarta.persistence</depends>
   <depends>consulo.database</depends>
@@ -13,6 +15,7 @@
   <resource-bundle>resources.messages.HibernateBundle</resource-bundle>
 
   <tags>
+    <tag>database</tag>
     <tag>software.framework</tag>
   </tags>
 </consulo-plugin>
