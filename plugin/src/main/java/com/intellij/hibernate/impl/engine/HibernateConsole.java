@@ -234,7 +234,7 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
 
     private DefaultActionGroup createActionGroup() {
         final DefaultActionGroup group = new DefaultActionGroup();
-        myRunAction = new AnAction(HibernateLocalize.hqlconsoleActionExecuteQuery(),
+        myRunAction = new LegacyAnAction(HibernateLocalize.hqlconsoleActionExecuteQuery(),
             HibernateLocalize.hqlconsoleActionExecuteQuery(),
             PlatformIconGroup.actionsExecute()) {
             @Override
@@ -254,7 +254,7 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
                 e.getPresentation().setEnabled(isReady() && myEditorField != null && myEditorField.getText().trim().length() > 0);
             }
         };
-        mySqlAction = new AnAction(HibernateLocalize.hqlconsoleActionGenerateSql(),
+        mySqlAction = new LegacyAnAction(HibernateLocalize.hqlconsoleActionGenerateSql(),
             HibernateLocalize.hqlconsoleActionGenerateSql(),
             Image.empty(16)) {
             @Override
@@ -273,7 +273,7 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
                 e.getPresentation().setEnabled(isReady() && myEditorField != null && myEditorField.getText().trim().length() > 0);
             }
         };
-        final AnAction ddlAction = new AnAction(HibernateLocalize.hqlconsoleActionGenerateDdl(),
+        final AnAction ddlAction = new LegacyAnAction(HibernateLocalize.hqlconsoleActionGenerateDdl(),
             HibernateLocalize.hqlconsoleActionGenerateDdl(), DatabaseIcons.DATASOURCE_ICON) {
             @Override
             public void actionPerformed(final AnActionEvent e) {
