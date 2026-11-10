@@ -40,6 +40,9 @@ import consulo.platform.base.icon.PlatformIconGroup;
 import consulo.process.ExecutionException;
 import consulo.project.Project;
 import consulo.sql.language.SqlLanguage;
+import consulo.ui.event.details.KeyCode;
+import consulo.ui.event.details.KeyStroke;
+import consulo.ui.event.details.ModifiedInputDetails.Modifier;
 import consulo.ui.ex.action.*;
 import consulo.ui.ex.awt.Messages;
 import consulo.ui.ex.content.Content;
@@ -52,8 +55,6 @@ import consulo.xml.dom.DomElement;
 import jakarta.annotation.Nonnull;
 
 import javax.swing.*;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 import java.util.Collections;
 import java.util.List;
 
@@ -293,9 +294,9 @@ public class HibernateConsole extends AbstractQueryLanguageConsole {
         group.add(myRunAction);
         group.add(mySqlAction);
         group.add(ddlAction);
-        myRunAction.registerCustomShortcutSet(new CustomShortcutSet(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.CTRL_MASK)),
+        myRunAction.registerCustomShortcutSet(new CustomShortcutSet(KeyStroke.pressed(KeyCode.ENTER, Modifier.CTRL)),
             myEditorField.getComponent());
-        mySqlAction.registerCustomShortcutSet(new CustomShortcutSet(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.CTRL_MASK | InputEvent.SHIFT_MASK)),
+        mySqlAction.registerCustomShortcutSet(new CustomShortcutSet(KeyStroke.pressed(KeyCode.ENTER, Modifier.CTRL, Modifier.SHIFT)),
             myEditorField.getComponent());
 
         final PairProcessor<AnActionEvent, String> historyProcessor = new PairProcessor<AnActionEvent, String>() {
